@@ -1,0 +1,14 @@
+title: ActiveCanvas
+description: Landing page powered by Jekyll
+baseurl: ""
+url: ""
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+  - package-lock.json
+  - package.json
+  - tailwind.config.js
