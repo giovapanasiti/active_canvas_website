@@ -591,280 +591,136 @@ title: ActiveCanvas — A Mountable Rails Engine for Page Management
       </div>
     </div>
 
-    <!-- AI Visual Mockups -->
-    <div class="mt-24">
-      <div class="text-center mb-12">
-        <h3 class="font-display section-subtitle text-surface-900 mb-4">See it in action.</h3>
-        <p class="text-surface-500 max-w-2xl mx-auto">The AI assistant lives inside the editor as a collapsible sidebar panel with three modes.</p>
-      </div>
+    <!-- AI Screenshots Showcase -->
+    <div class="mt-24 space-y-20">
 
-      <div class="grid lg:grid-cols-2 gap-6">
-
-        <!-- Mockup 1: Text Generation -->
-        <div class="rounded-2xl overflow-hidden border border-surface-200/60 shadow-elevated-lg bg-white">
-          <!-- Mockup header -->
-          <div class="bg-surface-950 px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <div class="flex gap-1.5">
-                <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-                <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-                <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-              </div>
-              <span class="text-xs text-surface-400 font-medium">AI Assistant</span>
-            </div>
-            <div class="flex items-center gap-1">
-              <svg class="w-4 h-4 text-surface-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-            </div>
+      <!-- Screenshot 1: AI Text Generation -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-canvas-50 border border-canvas-100 mb-5">
+            <svg class="w-3.5 h-3.5 text-canvas-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+            </svg>
+            <span class="text-xs font-semibold text-canvas-700">Text Generation</span>
           </div>
-
-          <div class="bg-surface-950 px-4 pb-4">
-            <!-- Tabs -->
-            <div class="flex gap-0.5 mb-4 bg-surface-900 rounded-lg p-0.5">
-              <div class="flex-1 text-center py-1.5 text-xs font-semibold rounded-md bg-canvas-600 text-white">Generate</div>
-              <div class="flex-1 text-center py-1.5 text-xs font-medium text-surface-500 rounded-md">Image</div>
-              <div class="flex-1 text-center py-1.5 text-xs font-medium text-surface-500 rounded-md">Screenshot</div>
-            </div>
-
-            <!-- Mode toggle + Model selector -->
-            <div class="flex items-center gap-2 mb-3">
-              <div class="flex bg-surface-900 rounded-md p-0.5 text-[10px] font-semibold">
-                <span class="px-2.5 py-1 rounded bg-surface-700 text-white">Page</span>
-                <span class="px-2.5 py-1 text-surface-500">Element</span>
-              </div>
-              <div class="flex-1 flex items-center gap-1.5 px-2.5 py-1.5 bg-surface-900 rounded-md border border-surface-800 text-[10px] text-surface-400">
-                <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                gpt-4o
-                <svg class="w-2.5 h-2.5 ml-auto text-surface-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Prompt area -->
-            <div class="bg-surface-900 rounded-lg border border-surface-800 p-3 mb-3">
-              <p class="text-xs text-surface-300 leading-relaxed mb-2">Create a hero section with a gradient background, centered heading, subtitle text, and two CTA buttons using Tailwind CSS</p>
-              <div class="flex justify-end">
-                <div class="px-2.5 py-1 rounded-md bg-canvas-600 text-[10px] font-semibold text-white flex items-center gap-1">
-                  <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                  </svg>
-                  Generate
-                </div>
-              </div>
-            </div>
-
-            <!-- Streaming response -->
-            <div class="bg-surface-900 rounded-lg border border-surface-800 p-3">
-              <div class="flex items-center gap-2 mb-2">
-                <div class="w-1.5 h-1.5 rounded-full bg-canvas-500 animate-pulse"></div>
-                <span class="text-[10px] text-canvas-400 font-medium">Streaming response...</span>
-              </div>
-              <div class="font-mono text-[10px] leading-relaxed text-surface-400 space-y-0.5">
-                <div><span class="text-cyan-400">&lt;section</span> <span class="text-amber-400">class=</span><span class="text-emerald-400">"min-h-screen flex items-center bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800"</span><span class="text-cyan-400">&gt;</span></div>
-                <div class="pl-3"><span class="text-cyan-400">&lt;div</span> <span class="text-amber-400">class=</span><span class="text-emerald-400">"max-w-4xl mx-auto px-6 text-center"</span><span class="text-cyan-400">&gt;</span></div>
-                <div class="pl-6"><span class="text-cyan-400">&lt;h1</span> <span class="text-amber-400">class=</span><span class="text-emerald-400">"text-5xl font-bold text-white mb-6"</span><span class="text-cyan-400">&gt;</span></div>
-                <div class="pl-9 text-surface-300">Build Something Amazing</div>
-                <div class="pl-6"><span class="text-cyan-400">&lt;/h1&gt;</span></div>
-                <div class="pl-6"><span class="text-cyan-400">&lt;p</span> <span class="text-amber-400">class=</span><span class="text-emerald-400">"text-xl text-white/70 mb-10"</span><span class="text-cyan-400">&gt;</span></div>
-                <div class="pl-9 text-surface-300">Start your journey with our platform<span class="animate-pulse text-canvas-400">|</span></div>
-              </div>
-            </div>
-
-            <!-- Action buttons -->
-            <div class="flex items-center gap-2 mt-3">
-              <div class="flex-1 text-center py-1.5 rounded-md bg-surface-800 border border-surface-700 text-[10px] font-medium text-surface-400">Copy</div>
-              <div class="flex-1 text-center py-1.5 rounded-md bg-canvas-600 text-[10px] font-semibold text-white">Insert into Page</div>
-              <div class="flex-1 text-center py-1.5 rounded-md bg-surface-800 border border-surface-700 text-[10px] font-medium text-surface-400">Regenerate</div>
+          <h3 class="font-display text-2xl font-bold text-surface-900 mb-4">Describe what you need, get HTML back.</h3>
+          <p class="text-surface-500 leading-relaxed mb-5">
+            Type a prompt like <em>"Create a pricing section with three tiers"</em> and watch the AI stream clean, semantic HTML directly into the editor. Choose between Page mode (full-page content) or Element mode (single components).
+          </p>
+          <ul class="space-y-2.5 text-sm text-surface-600">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Real-time SSE streaming &mdash; see the HTML as it's generated
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Respects your CSS framework &mdash; outputs Tailwind or Bootstrap markup
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Copy, insert, or regenerate with one click
+            </li>
+          </ul>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-surface-200/60 shadow-elevated-lg bg-surface-100">
+          <!-- TODO: Replace with actual screenshot of the AI text generation panel -->
+          <div class="aspect-[4/3] bg-surface-100 flex items-center justify-center">
+            <div class="text-center px-8">
+              <svg class="w-12 h-12 mx-auto mb-3 text-surface-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <p class="text-sm text-surface-400 font-medium">ai-text-generation.png</p>
+              <p class="text-xs text-surface-400 mt-1">Screenshot of the AI Generate tab with streaming response</p>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Mockup 2: Screenshot to Code -->
-        <div class="rounded-2xl overflow-hidden border border-surface-200/60 shadow-elevated-lg bg-white">
-          <!-- Mockup header -->
-          <div class="bg-surface-950 px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <div class="flex gap-1.5">
-                <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-                <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-                <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-              </div>
-              <span class="text-xs text-surface-400 font-medium">AI Assistant</span>
-            </div>
-            <div class="flex items-center gap-1">
-              <svg class="w-4 h-4 text-surface-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+      <!-- Screenshot 2: Screenshot to Code -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 rounded-2xl overflow-hidden border border-surface-200/60 shadow-elevated-lg bg-surface-100">
+          <!-- TODO: Replace with actual screenshot of the screenshot-to-code panel -->
+          <div class="aspect-[4/3] bg-surface-100 flex items-center justify-center">
+            <div class="text-center px-8">
+              <svg class="w-12 h-12 mx-auto mb-3 text-surface-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
-            </div>
-          </div>
-
-          <div class="bg-surface-950 px-4 pb-4">
-            <!-- Tabs -->
-            <div class="flex gap-0.5 mb-4 bg-surface-900 rounded-lg p-0.5">
-              <div class="flex-1 text-center py-1.5 text-xs font-medium text-surface-500 rounded-md">Generate</div>
-              <div class="flex-1 text-center py-1.5 text-xs font-medium text-surface-500 rounded-md">Image</div>
-              <div class="flex-1 text-center py-1.5 text-xs font-semibold rounded-md bg-amber-600 text-white">Screenshot</div>
-            </div>
-
-            <!-- Model selector -->
-            <div class="flex items-center gap-2 mb-3">
-              <div class="flex-1 flex items-center gap-1.5 px-2.5 py-1.5 bg-surface-900 rounded-md border border-surface-800 text-[10px] text-surface-400">
-                <div class="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
-                claude-sonnet-4-5-20250929
-                <svg class="w-2.5 h-2.5 ml-auto text-surface-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Uploaded screenshot preview -->
-            <div class="bg-surface-900 rounded-lg border border-surface-800 p-3 mb-3">
-              <div class="flex items-center gap-2 mb-2">
-                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span class="text-[10px] text-emerald-400 font-medium">Screenshot uploaded</span>
-              </div>
-              <!-- Fake screenshot thumbnail -->
-              <div class="rounded-md overflow-hidden border border-surface-700 bg-surface-800 aspect-[16/9] flex items-center justify-center relative">
-                <!-- Miniature wireframe illustration -->
-                <div class="w-full h-full p-3 flex flex-col gap-1.5">
-                  <!-- Nav bar -->
-                  <div class="flex items-center gap-2">
-                    <div class="w-6 h-1.5 rounded-sm bg-surface-600"></div>
-                    <div class="flex-1"></div>
-                    <div class="w-4 h-1.5 rounded-sm bg-surface-700"></div>
-                    <div class="w-4 h-1.5 rounded-sm bg-surface-700"></div>
-                    <div class="w-4 h-1.5 rounded-sm bg-surface-700"></div>
-                  </div>
-                  <!-- Hero -->
-                  <div class="flex-1 flex flex-col items-center justify-center gap-1.5 rounded bg-gradient-to-br from-canvas-800/30 to-cyan-800/20 p-2">
-                    <div class="w-16 h-1.5 rounded-sm bg-surface-500"></div>
-                    <div class="w-12 h-1 rounded-sm bg-surface-600"></div>
-                    <div class="flex gap-1 mt-1">
-                      <div class="w-6 h-2 rounded-sm bg-canvas-700/50"></div>
-                      <div class="w-6 h-2 rounded-sm bg-surface-700"></div>
-                    </div>
-                  </div>
-                  <!-- Cards row -->
-                  <div class="flex gap-1">
-                    <div class="flex-1 h-5 rounded bg-surface-700"></div>
-                    <div class="flex-1 h-5 rounded bg-surface-700"></div>
-                    <div class="flex-1 h-5 rounded bg-surface-700"></div>
-                  </div>
-                </div>
-                <div class="absolute bottom-1.5 right-1.5 text-[8px] text-surface-600 font-mono">landing-mockup.png</div>
-              </div>
-            </div>
-
-            <!-- Additional prompt -->
-            <div class="bg-surface-900 rounded-lg border border-surface-800 px-3 py-2 mb-3">
-              <p class="text-[10px] text-surface-400 italic">Use Tailwind CSS, make it responsive, keep the purple color scheme...</p>
-            </div>
-
-            <!-- Generated code output -->
-            <div class="bg-surface-900 rounded-lg border border-surface-800 p-3">
-              <div class="flex items-center gap-2 mb-2">
-                <svg class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span class="text-[10px] text-emerald-400 font-medium">Code generated from screenshot</span>
-              </div>
-              <div class="font-mono text-[10px] leading-relaxed text-surface-400 space-y-0.5">
-                <div><span class="text-cyan-400">&lt;nav</span> <span class="text-amber-400">class=</span><span class="text-emerald-400">"flex items-center justify-between px-6 py-4"</span><span class="text-cyan-400">&gt;</span></div>
-                <div class="pl-3"><span class="text-cyan-400">&lt;span</span> <span class="text-amber-400">class=</span><span class="text-emerald-400">"font-bold text-lg"</span><span class="text-cyan-400">&gt;</span><span class="text-surface-300">Logo</span><span class="text-cyan-400">&lt;/span&gt;</span></div>
-                <div><span class="text-cyan-400">&lt;/nav&gt;</span></div>
-                <div><span class="text-cyan-400">&lt;section</span> <span class="text-amber-400">class=</span><span class="text-emerald-400">"bg-gradient-to-br from-purple-900 to-cyan-900 min-h-[60vh] flex items-center"</span><span class="text-cyan-400">&gt;</span></div>
-                <div class="pl-3"><span class="text-cyan-400">&lt;div</span> <span class="text-amber-400">class=</span><span class="text-emerald-400">"max-w-4xl mx-auto text-center"</span><span class="text-cyan-400">&gt;</span></div>
-                <div class="pl-6 text-surface-500">...</div>
-              </div>
-            </div>
-
-            <!-- Insert button -->
-            <div class="flex items-center gap-2 mt-3">
-              <div class="flex-1 text-center py-1.5 rounded-md bg-surface-800 border border-surface-700 text-[10px] font-medium text-surface-400">Copy HTML</div>
-              <div class="flex-1 text-center py-1.5 rounded-md bg-amber-600 text-[10px] font-semibold text-white">Insert into Page</div>
+              <p class="text-sm text-surface-400 font-medium">screenshot-to-code.png</p>
+              <p class="text-xs text-surface-400 mt-1">Screenshot of the Screenshot tab with uploaded image and generated code</p>
             </div>
           </div>
         </div>
-
+        <div class="order-1 lg:order-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-100 mb-5">
+            <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span class="text-xs font-semibold text-amber-700">Screenshot to Code</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-surface-900 mb-4">Drop a screenshot, get editable HTML.</h3>
+          <p class="text-surface-500 leading-relaxed mb-5">
+            Drag and drop a screenshot or wireframe into the panel. A vision model analyzes the layout, colors, and structure, then generates clean HTML + CSS that you can insert directly into your page.
+          </p>
+          <ul class="space-y-2.5 text-sm text-surface-600">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Drag &amp; drop or file picker &mdash; supports PNG, JPG, WebP
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Add an optional prompt to guide the output style
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Uses vision models (GPT-4o, Claude) for accurate layout reproduction
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Image Generation - smaller, below -->
-      <div class="mt-6 max-w-lg mx-auto">
-        <div class="rounded-2xl overflow-hidden border border-surface-200/60 shadow-elevated bg-white">
-          <div class="bg-surface-950 px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <div class="flex gap-1.5">
-                <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-                <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-                <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-              </div>
-              <span class="text-xs text-surface-400 font-medium">AI Assistant &mdash; Image Generation</span>
-            </div>
+      <!-- Screenshot 3: Image Generation -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-50 border border-cyan-100 mb-5">
+            <svg class="w-3.5 h-3.5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <span class="text-xs font-semibold text-cyan-700">Image Generation</span>
           </div>
-
-          <div class="bg-surface-950 px-4 pb-4">
-            <!-- Tabs -->
-            <div class="flex gap-0.5 mb-4 bg-surface-900 rounded-lg p-0.5">
-              <div class="flex-1 text-center py-1.5 text-xs font-medium text-surface-500 rounded-md">Generate</div>
-              <div class="flex-1 text-center py-1.5 text-xs font-semibold rounded-md bg-cyan-600 text-white">Image</div>
-              <div class="flex-1 text-center py-1.5 text-xs font-medium text-surface-500 rounded-md">Screenshot</div>
-            </div>
-
-            <!-- Prompt -->
-            <div class="bg-surface-900 rounded-lg border border-surface-800 p-3 mb-3">
-              <p class="text-xs text-surface-300 leading-relaxed mb-2">A minimal abstract illustration of connected nodes in purple and cyan tones, dark background, clean vector style</p>
-              <div class="flex justify-end">
-                <div class="px-2.5 py-1 rounded-md bg-cyan-600 text-[10px] font-semibold text-white flex items-center gap-1">
-                  <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                  </svg>
-                  Generate Image
-                </div>
-              </div>
-            </div>
-
-            <!-- Generated image preview -->
-            <div class="rounded-lg overflow-hidden border border-surface-800 bg-surface-900 aspect-[16/10] flex items-center justify-center mb-3 relative">
-              <!-- Abstract illustration placeholder -->
-              <svg class="w-full h-full" viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="400" height="250" fill="#0a0a0a"/>
-                <!-- Abstract connected nodes -->
-                <circle cx="120" cy="100" r="24" fill="rgba(139,71,255,0.15)" stroke="rgba(139,71,255,0.4)" stroke-width="1"/>
-                <circle cx="120" cy="100" r="4" fill="#8b47ff"/>
-                <circle cx="220" cy="70" r="20" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
-                <circle cx="220" cy="70" r="4" fill="#06b6d4"/>
-                <circle cx="280" cy="150" r="28" fill="rgba(139,71,255,0.1)" stroke="rgba(139,71,255,0.3)" stroke-width="1"/>
-                <circle cx="280" cy="150" r="5" fill="#8b47ff"/>
-                <circle cx="170" cy="180" r="18" fill="rgba(6,182,212,0.12)" stroke="rgba(6,182,212,0.35)" stroke-width="1"/>
-                <circle cx="170" cy="180" r="3" fill="#06b6d4"/>
-                <circle cx="330" cy="80" r="14" fill="rgba(249,115,22,0.12)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
-                <circle cx="330" cy="80" r="3" fill="#f97316"/>
-                <circle cx="80" cy="180" r="16" fill="rgba(139,71,255,0.08)" stroke="rgba(139,71,255,0.2)" stroke-width="1"/>
-                <circle cx="80" cy="180" r="3" fill="#8b47ff"/>
-                <!-- Connection lines -->
-                <line x1="120" y1="100" x2="220" y2="70" stroke="rgba(139,71,255,0.2)" stroke-width="1"/>
-                <line x1="220" y1="70" x2="280" y2="150" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
-                <line x1="120" y1="100" x2="170" y2="180" stroke="rgba(6,182,212,0.15)" stroke-width="1"/>
-                <line x1="220" y1="70" x2="330" y2="80" stroke="rgba(249,115,22,0.15)" stroke-width="1"/>
-                <line x1="170" y1="180" x2="280" y2="150" stroke="rgba(139,71,255,0.15)" stroke-width="1"/>
-                <line x1="80" y1="180" x2="120" y2="100" stroke="rgba(139,71,255,0.1)" stroke-width="1"/>
-                <line x1="80" y1="180" x2="170" y2="180" stroke="rgba(6,182,212,0.1)" stroke-width="1"/>
-                <!-- Subtle glow spots -->
-                <circle cx="120" cy="100" r="40" fill="rgba(139,71,255,0.04)"/>
-                <circle cx="280" cy="150" r="50" fill="rgba(6,182,212,0.03)"/>
+          <h3 class="font-display text-2xl font-bold text-surface-900 mb-4">Generate images from a text prompt.</h3>
+          <p class="text-surface-500 leading-relaxed mb-5">
+            Describe the image you need and the AI creates it using DALL-E or GPT Image. The generated image is automatically saved to your media library via Active Storage, ready to use across any page.
+          </p>
+          <ul class="space-y-2.5 text-sm text-surface-600">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Images saved directly to your Active Storage media library
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              One-click insert into the current page
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Powered by OpenAI image models via ruby_llm
+            </li>
+          </ul>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-surface-200/60 shadow-elevated-lg bg-surface-100">
+          <!-- TODO: Replace with actual screenshot of the AI image generation panel -->
+          <div class="aspect-[4/3] bg-surface-100 flex items-center justify-center">
+            <div class="text-center px-8">
+              <svg class="w-12 h-12 mx-auto mb-3 text-surface-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
-              <div class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-surface-900/90 text-[8px] text-surface-500 font-mono border border-surface-800">1024 × 1024 &middot; DALL-E 3</div>
+              <p class="text-sm text-surface-400 font-medium">ai-image-generation.png</p>
+              <p class="text-xs text-surface-400 mt-1">Screenshot of the Image tab with generated image preview</p>
             </div>
-
-            <!-- Insert button -->
-            <div class="text-center py-1.5 rounded-md bg-cyan-600 text-[10px] font-semibold text-white">Insert Image into Page</div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
