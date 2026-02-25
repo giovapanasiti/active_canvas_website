@@ -1,14 +1,26 @@
 title: ActiveCanvas
-description: Landing page powered by Jekyll
-baseurl: ""
+description: The AI-powered CMS engine for Rails 8+. Visual page builder, AI content generation, and production-ready Tailwind CSS — all in one mountable gem.
 url: ""
-markdown: kramdown
+baseurl: ""
+
+collections:
+  guides:
+    output: true
+    permalink: /guides/:slug.html
+
+defaults:
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: docs
+
 exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Procfile.dev
+  - _src
   - Gemfile
   - Gemfile.lock
   - README.md
-  - node_modules
-  - vendor
-  - package-lock.json
-  - package.json
-  - tailwind.config.js

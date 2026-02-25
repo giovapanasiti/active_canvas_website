@@ -1,0 +1,21 @@
+main:
+  - title: Features
+    url: /features.html
+  - title: Docs
+    url: /docs.html
+  - title: Guides
+    url: /guides/getting-started.html
+
+guides:
+  - title: Getting Started
+    url: /guides/getting-started.html
+  - title: Visual Editor
+    url: /guides/visual-editor.html
+  - title: AI Features
+    url: /guides/ai-features.html
+  - title: Configuration
+    url: /guides/configuration.html
+  - title: Authentication
+    url: /guides/authentication.html
+  - title: Tailwind CSS
+    url: /guides/tailwind-css.html

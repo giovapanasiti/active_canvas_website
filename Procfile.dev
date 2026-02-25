@@ -1,0 +1,2 @@
+jekyll: bundle exec jekyll serve --livereload
+tailwind: npx @tailwindcss/cli -i ./_src/main.css -o ./assets/css/output.css --watch

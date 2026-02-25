@@ -1,0 +1,27 @@
+<aside class="docs-sidebar">
+  {% if page.layout == 'docs' and page.url contains '/guides/' %}
+    <!-- Guide pages sidebar -->
+    <div class="sidebar-heading">Guides</div>
+    {% for item in site.data.navigation.guides %}
+      <a href="{{ item.url | relative_url }}" class="{% if page.url == item.url %}active{% endif %}">{{ item.title }}</a>
+    {% endfor %}
+  {% else %}
+    <!-- Docs page sidebar (anchor links) -->
+    <div class="sidebar-heading">Documentation</div>
+    <a href="#installation" class="{% if page.current_section == 'installation' %}active{% endif %}">Installation</a>
+    <a href="#quick-start">Quick Start</a>
+    <a href="#configuration">Configuration</a>
+    <a href="#authentication">Authentication</a>
+    <a href="#css-framework">CSS Framework</a>
+    <a href="#ai-setup">AI Setup</a>
+    <a href="#media">Media Library</a>
+    <a href="#versioning">Page Versioning</a>
+    <a href="#customization">Customization</a>
+    <a href="#rake-tasks">Rake Tasks</a>
+
+    <div class="sidebar-heading">Guides</div>
+    {% for item in site.data.navigation.guides %}
+      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+    {% endfor %}
+  {% endif %}
+</aside>

@@ -1,318 +1,816 @@
 ---
 layout: default
-title: ActiveCanvas — Features
+title: Features — ActiveCanvas
+description: Explore ActiveCanvas features — visual editor, AI content generation, Tailwind CSS compilation, page versioning, media library, and flexible authentication.
 ---
 
-<!-- Navigation -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-ink-200/50">
-  <div class="max-w-7xl mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-lg shadow-primary-500/20 group-hover:shadow-primary-500/30 transition-shadow">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-          </svg>
+<!-- ==================== HERO ==================== -->
+<section class="relative overflow-hidden pt-16">
+  <!-- Subtle background accent -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gold-400/[0.03] rounded-full blur-[120px]"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 py-24 text-center">
+    <p class="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium mb-4"
+       style="animation: fade-up 0.6s ease both;">Features Deep Dive</p>
+    <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[0.95] mb-6"
+        style="animation: fade-up 0.6s ease 0.1s both;">
+      Built for Rails developers.<br>
+      <span class="text-gradient-gold">Loved by content teams.</span>
+    </h1>
+    <p class="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto"
+       style="animation: fade-up 0.6s ease 0.2s both;">
+      ActiveCanvas packs a visual editor, AI generation, compiled Tailwind CSS, page versioning, a media library, and flexible auth into a single mountable engine. Here is everything under the hood.
+    </p>
+  </div>
+</section>
+
+
+<!-- ==================== VISUAL EDITOR ==================== -->
+<section class="py-24 md:py-32 bg-cream-warm">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Text (left) -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium mb-4 reveal">Visual Editor</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-6 reveal">
+          Drag, drop, publish.<br>
+          <span class="text-muted">No front-end deploy needed.</span>
+        </h2>
+        <p class="text-muted leading-relaxed mb-8 reveal">
+          The GrapeJS-powered editor lives inside your Rails admin. Content teams build pages visually while developers keep full control over the markup.
+        </p>
+
+        <div class="space-y-4 reveal">
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-gold-400/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Drag-and-drop blocks</p>
+              <p class="text-xs text-faint mt-0.5">Sections, columns, text, images, videos, forms, and custom blocks</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-gold-400/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Inline code editing</p>
+              <p class="text-xs text-faint mt-0.5">Toggle into raw HTML/CSS/JS with syntax highlighting when you need precision</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-gold-400/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Responsive preview</p>
+              <p class="text-xs text-faint mt-0.5">Switch between desktop, tablet, and mobile viewports in one click</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-gold-400/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Style manager &amp; layer panel</p>
+              <p class="text-xs text-faint mt-0.5">Spacing, typography, backgrounds, borders, and a full layer tree for complex layouts</p>
+            </div>
+          </div>
         </div>
-        <span class="text-xl font-display font-bold tracking-tight">Active<span class="gradient-text-static">Canvas</span></span>
-      </a>
-      <div class="hidden md:flex items-center gap-1">
-        <a href="/features" class="px-4 py-2 text-sm font-semibold text-ink-900 bg-ink-100/50 rounded-lg">Features</a>
-        <a href="/templates" class="px-4 py-2 text-sm font-medium text-ink-600 hover:text-ink-900 hover:bg-ink-100/50 rounded-lg transition-colors">Templates</a>
-        <a href="/pricing" class="px-4 py-2 text-sm font-medium text-ink-600 hover:text-ink-900 hover:bg-ink-100/50 rounded-lg transition-colors">Pricing</a>
-        <a href="/docs" class="px-4 py-2 text-sm font-medium text-ink-600 hover:text-ink-900 hover:bg-ink-100/50 rounded-lg transition-colors flex items-center gap-2">
-          Docs
-          <span class="px-1.5 py-0.5 text-[10px] font-bold bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-md">New</span>
-        </a>
-        <a href="https://github.com" target="_blank" class="px-4 py-2 text-sm font-medium text-ink-600 hover:text-ink-900 hover:bg-ink-100/50 rounded-lg transition-colors">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        </a>
       </div>
-      <a href="/pricing" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-primary text-white text-sm font-semibold">
-        Get Started
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-        </svg>
-      </a>
-      <button class="md:hidden p-2 text-ink-500 hover:text-ink-900 hover:bg-ink-100 rounded-lg transition-colors">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
+
+      <!-- Visual (right) — editor mockup -->
+      <div class="reveal">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gold-400/[0.04] rounded-2xl blur-[40px] scale-95"></div>
+          <div class="relative rounded-2xl border border-edge overflow-hidden shadow-2xl">
+            <!-- Chrome bar -->
+            <div class="flex items-center gap-3 px-4 py-3 bg-surface-alt border-b border-edge">
+              <div class="flex gap-1.5">
+                <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+              </div>
+              <div class="flex-1 flex items-center justify-center">
+                <div class="px-4 py-1 rounded-md bg-surface text-xs font-mono text-faint">ActiveCanvas Editor</div>
+              </div>
+              <div class="w-12"></div>
+            </div>
+            <!-- Editor body -->
+            <div class="flex bg-cream-warm" style="height: 300px;">
+              <!-- Blocks sidebar -->
+              <div class="w-44 border-r border-edge bg-surface p-3 space-y-2 hidden md:block">
+                <div class="text-[10px] text-faint uppercase tracking-wider mb-2">Blocks</div>
+                <div class="grid grid-cols-2 gap-1.5">
+                  <div class="p-2 rounded bg-surface-alt border border-edge text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="1.5" class="mx-auto mb-1"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                    <div class="text-[8px] text-faint">Section</div>
+                  </div>
+                  <div class="p-2 rounded bg-surface-alt border border-edge text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="1.5" class="mx-auto mb-1"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>
+                    <div class="text-[8px] text-faint">Columns</div>
+                  </div>
+                  <div class="p-2 rounded bg-surface-alt border border-edge text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="1.5" class="mx-auto mb-1"><path d="M4 7h16M4 12h10M4 17h12"/></svg>
+                    <div class="text-[8px] text-faint">Text</div>
+                  </div>
+                  <div class="p-2 rounded bg-surface-alt border border-edge text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="1.5" class="mx-auto mb-1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                    <div class="text-[8px] text-faint">Image</div>
+                  </div>
+                  <div class="p-2 rounded bg-surface-alt border border-edge text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="1.5" class="mx-auto mb-1"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                    <div class="text-[8px] text-faint">Video</div>
+                  </div>
+                  <div class="p-2 rounded bg-surface-alt border border-edge text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="1.5" class="mx-auto mb-1"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
+                    <div class="text-[8px] text-faint">Form</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Canvas preview -->
+              <div class="flex-1 p-4 overflow-hidden bg-surface-alt">
+                <div class="bg-white rounded-lg h-full overflow-hidden shadow-lg">
+                  <div class="flex items-center justify-between px-4 py-2.5 border-b border-gray-100">
+                    <div class="w-14 h-2.5 rounded bg-gray-800"></div>
+                    <div class="flex gap-3">
+                      <div class="w-8 h-1.5 rounded bg-gray-200"></div>
+                      <div class="w-8 h-1.5 rounded bg-gray-200"></div>
+                      <div class="w-8 h-1.5 rounded bg-gray-200"></div>
+                    </div>
+                    <div class="w-12 h-4 rounded-md bg-indigo-500"></div>
+                  </div>
+                  <div class="px-4 py-5 text-center bg-indigo-50">
+                    <div class="w-40 h-3 rounded bg-gray-800 mx-auto mb-2"></div>
+                    <div class="w-56 h-2 rounded bg-gray-300 mx-auto mb-3"></div>
+                    <div class="flex justify-center gap-2">
+                      <div class="w-16 h-5 rounded-md bg-indigo-500"></div>
+                      <div class="w-16 h-5 rounded-md bg-gray-200"></div>
+                    </div>
+                  </div>
+                  <div class="px-4 py-3 grid grid-cols-3 gap-2">
+                    <div class="p-2 rounded bg-gray-50 border border-gray-100">
+                      <div class="w-5 h-5 rounded bg-indigo-100 mb-1.5"></div>
+                      <div class="w-12 h-1.5 rounded bg-gray-300 mb-1"></div>
+                      <div class="w-full h-1 rounded bg-gray-200"></div>
+                    </div>
+                    <div class="p-2 rounded bg-gray-50 border border-gray-100 ring-2 ring-indigo-400 ring-offset-1">
+                      <div class="w-5 h-5 rounded bg-emerald-100 mb-1.5"></div>
+                      <div class="w-10 h-1.5 rounded bg-gray-300 mb-1"></div>
+                      <div class="w-full h-1 rounded bg-gray-200"></div>
+                    </div>
+                    <div class="p-2 rounded bg-gray-50 border border-gray-100">
+                      <div class="w-5 h-5 rounded bg-amber-100 mb-1.5"></div>
+                      <div class="w-9 h-1.5 rounded bg-gray-300 mb-1"></div>
+                      <div class="w-full h-1 rounded bg-gray-200"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
+</section>
 
-<!-- Page Hero -->
-<section class="relative pt-32 pb-24 overflow-hidden mesh-hero">
-  <div class="noise-overlay absolute inset-0"></div>
-  <div class="grid-pattern absolute inset-0"></div>
 
-  <div class="relative max-w-6xl mx-auto px-6">
-    <div class="max-w-3xl">
-      <span class="pill mb-6 animate-slide-up">Built for pros who still ship fast</span>
-      <h1 class="font-display section-title text-ink-900 mb-6 animate-slide-up stagger-1">
-        Everything you need to<br>
-        <span class="gradient-text">build in the open.</span>
-      </h1>
-      <p class="text-lg text-ink-500 leading-relaxed mb-10 animate-slide-up stagger-2">
-        ActiveCanvas mixes direct manipulation editing with clean code control. Every feature keeps you in the loop — no theme lock-in, no mystery payloads, just a modern workflow inspired by LiveCanvas simplicity and speed.
+<!-- ==================== AI CONTENT GENERATION ==================== -->
+<section class="py-24 md:py-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Visual (left) — AI panel mockup -->
+      <div class="order-2 lg:order-1 reveal">
+        <div class="relative">
+          <div class="absolute inset-0 bg-coral/[0.04] rounded-2xl blur-[40px] scale-95"></div>
+          <div class="relative rounded-2xl border border-edge overflow-hidden shadow-2xl bg-surface">
+            <!-- Tab bar -->
+            <div class="flex items-center gap-1 px-4 py-2.5 border-b border-edge">
+              <div class="px-3 py-1.5 rounded-md bg-gold-400/10 text-[10px] font-medium text-gold-400">Generate</div>
+              <div class="px-3 py-1.5 rounded-md text-[10px] text-faint">Image</div>
+              <div class="px-3 py-1.5 rounded-md text-[10px] text-faint">Screenshot</div>
+            </div>
+            <!-- AI body -->
+            <div class="p-4 space-y-3">
+              <div>
+                <div class="text-[10px] text-faint mb-1.5">Model</div>
+                <div class="px-3 py-1.5 rounded-md bg-surface-alt border border-edge text-[10px] text-ink-light">Claude 3.5 Sonnet</div>
+              </div>
+              <div>
+                <div class="text-[10px] text-faint mb-1.5">Prompt</div>
+                <div class="rounded-lg bg-surface-alt/50 p-3">
+                  <div class="text-[10px] text-muted">Create a hero section with a bold heading, subtitle, and two CTA buttons using Tailwind CSS v4</div>
+                </div>
+              </div>
+              <div class="rounded-lg bg-surface-alt border border-edge p-3">
+                <div class="flex gap-1 mb-2">
+                  <div class="w-1 h-1 rounded-full bg-gold-400 animate-pulse"></div>
+                  <div class="w-1 h-1 rounded-full bg-gold-400 animate-pulse" style="animation-delay: 0.15s"></div>
+                  <div class="w-1 h-1 rounded-full bg-gold-400 animate-pulse" style="animation-delay: 0.3s"></div>
+                </div>
+                <div class="text-[9px] text-muted leading-relaxed font-mono">
+                  &lt;<span class="text-steel">section</span> <span class="text-gold-400">class</span>=<span class="text-[#40A02B]">"py-24 text-center"</span>&gt;<br>
+                  &nbsp;&nbsp;&lt;<span class="text-steel">div</span> <span class="text-gold-400">class</span>=<span class="text-[#40A02B]">"max-w-4xl mx-auto"</span>&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="text-steel">h1</span> <span class="text-gold-400">class</span>=<span class="text-[#40A02B]">"text-6xl font-bold"</span>&gt;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ship faster...<span class="animate-pulse text-gold-400">|</span>
+                </div>
+              </div>
+              <!-- Provider row -->
+              <div class="flex items-center gap-2 pt-1">
+                <span class="text-[9px] text-faint">Providers:</span>
+                <span class="text-[9px] px-2 py-0.5 rounded-full bg-surface-alt border border-edge text-muted">OpenAI</span>
+                <span class="text-[9px] px-2 py-0.5 rounded-full bg-surface-alt border border-edge text-muted">Anthropic</span>
+                <span class="text-[9px] px-2 py-0.5 rounded-full bg-surface-alt border border-edge text-muted">OpenRouter</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text (right) -->
+      <div class="order-1 lg:order-2">
+        <p class="text-xs uppercase tracking-[0.2em] text-coral font-medium mb-4 reveal">AI Content Generation</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-6 reveal">
+          AI that knows<br>
+          <span class="text-muted">your CSS framework.</span>
+        </h2>
+        <p class="text-muted leading-relaxed mb-8 reveal">
+          Powered by <a href="https://github.com/crmne/ruby_llm" class="text-steel hover:text-steel-light underline underline-offset-2" target="_blank" rel="noopener">RubyLLM</a>, ActiveCanvas sends framework-aware prompts so the AI outputs code using your configured CSS framework — Tailwind v4, Bootstrap 5, or vanilla CSS.
+        </p>
+
+        <div class="space-y-4 reveal-stagger">
+          <!-- Capability 1 -->
+          <div class="feature-card rounded-xl p-5 reveal">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-coral/10 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <h3 class="font-display text-base font-semibold text-ink">Text &amp; HTML generation</h3>
+            </div>
+            <p class="text-xs text-muted leading-relaxed">Describe a section in plain English. The AI streams production-ready HTML directly into the editor canvas.</p>
+          </div>
+
+          <!-- Capability 2 -->
+          <div class="feature-card rounded-xl p-5 reveal">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-[#a78bfa]/10 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              </div>
+              <h3 class="font-display text-base font-semibold text-ink">Image generation</h3>
+            </div>
+            <p class="text-xs text-muted leading-relaxed">Create images from text descriptions via DALL-E. Generated files are stored in your media library through Active Storage.</p>
+          </div>
+
+          <!-- Capability 3 -->
+          <div class="feature-card rounded-xl p-5 reveal">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-steel/10 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-steel)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+              </div>
+              <h3 class="font-display text-base font-semibold text-ink">Screenshot to code</h3>
+            </div>
+            <p class="text-xs text-muted leading-relaxed">Upload a screenshot of any design and the AI recreates it as production HTML using your configured CSS framework.</p>
+          </div>
+        </div>
+
+        <!-- Provider badges -->
+        <div class="flex items-center gap-3 mt-8 reveal">
+          <span class="text-xs text-faint">Powered by</span>
+          <span class="px-3 py-1 rounded-full border border-edge text-xs text-muted">OpenAI</span>
+          <span class="px-3 py-1 rounded-full border border-edge text-xs text-muted">Anthropic</span>
+          <span class="px-3 py-1 rounded-full border border-edge text-xs text-muted">OpenRouter</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== TAILWIND CSS ==================== -->
+<section class="py-24 md:py-32 bg-cream-warm">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Text (left) -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.2em] text-steel font-medium mb-4 reveal">Tailwind CSS</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-6 reveal">
+          CDN in the editor.<br>
+          <span class="text-muted">Compiled in production.</span>
+        </h2>
+        <p class="text-muted leading-relaxed mb-6 reveal">
+          While editing, pages load the Tailwind CDN for instant utility class previews. When you save, ActiveCanvas compiles per-page CSS using the <code class="text-xs font-mono bg-code-bg text-coral px-1.5 py-0.5 rounded border border-edge">tailwindcss-ruby</code> gem — zero CDN dependency in production.
+        </p>
+
+        <div class="space-y-3 reveal">
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="w-3 h-3 rounded-full bg-steel/60"></div>
+              How it works
+            </div>
+            <div class="code-block-body text-xs leading-[1.8]">
+              <span class="cm"># 1. Editor loads Tailwind CDN for live preview</span><br>
+              <span class="cm"># 2. On save, HTML is written to a temp file</span><br>
+              <span class="cm"># 3. tailwindcss-ruby compiles only used classes</span><br>
+              <span class="cm"># 4. Minified CSS is stored on the page record</span><br>
+              <span class="cm"># 5. Production serves inline &lt;style&gt; — no CDN</span><br>
+              <br>
+              <span class="fn">ActiveCanvas</span><span class="op">::</span><span class="fn">TailwindCompiler</span><span class="op">.</span><span class="fn">compile</span><span class="op">(</span><br>
+              &nbsp;&nbsp;page<span class="op">.</span>content<span class="op">,</span><br>
+              &nbsp;&nbsp;<span class="kw">identifier:</span> <span class="str">"page ##{page.id}"</span><br>
+              <span class="op">)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 reveal">
+          <p class="text-xs text-faint">Also supports <strong class="text-muted">Bootstrap 5</strong> and <strong class="text-muted">vanilla CSS</strong> via the <code class="text-xs font-mono bg-code-bg text-coral px-1 py-0.5 rounded border border-edge">css_framework</code> config option.</p>
+        </div>
+      </div>
+
+      <!-- Visual (right) — pipeline diagram -->
+      <div class="reveal">
+        <div class="relative">
+          <div class="absolute inset-0 bg-steel/[0.04] rounded-2xl blur-[40px] scale-95"></div>
+          <div class="relative space-y-4">
+
+            <!-- Step: CDN -->
+            <div class="feature-card rounded-xl p-5">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-steel/10 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-steel)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm text-ink font-semibold font-display">1. CDN Preview</p>
+                  <p class="text-[10px] text-faint">Editor environment</p>
+                </div>
+              </div>
+              <div class="code-block">
+                <div class="code-block-body text-[10px] leading-relaxed py-2 px-3">
+                  <span class="op">&lt;script</span> <span class="kw">src=</span><span class="str">"https://cdn.tailwindcss.com"</span><span class="op">&gt;&lt;/script&gt;</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-edge-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            </div>
+
+            <!-- Step: Compile -->
+            <div class="feature-card rounded-xl p-5">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-gold-400/10 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M18.4 5.6l-2.1 2.1M21 12h-3M18.4 18.4l-2.1-2.1M12 21v-3M5.6 18.4l2.1-2.1M3 12h3M5.6 5.6l2.1 2.1"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm text-ink font-semibold font-display">2. Compile</p>
+                  <p class="text-[10px] text-faint">On save (background job)</p>
+                </div>
+              </div>
+              <div class="code-block">
+                <div class="code-block-body text-[10px] leading-relaxed py-2 px-3">
+                  <span class="var">$</span> tailwindcss <span class="kw">--input</span> input.css <span class="kw">--output</span> output.css <span class="kw">--minify</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-edge-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            </div>
+
+            <!-- Step: Serve -->
+            <div class="feature-card rounded-xl p-5">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald/10 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-emerald)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm text-ink font-semibold font-display">3. Serve</p>
+                  <p class="text-[10px] text-faint">Production — zero CDN</p>
+                </div>
+              </div>
+              <div class="code-block">
+                <div class="code-block-body text-[10px] leading-relaxed py-2 px-3">
+                  <span class="op">&lt;style&gt;</span><span class="str">.py-24{padding-top:6rem;padding-bottom:6rem}...</span><span class="op">&lt;/style&gt;</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== PAGE VERSIONING ==================== -->
+<section class="py-24 md:py-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Visual (left) — diff mockup -->
+      <div class="order-2 lg:order-1 reveal">
+        <div class="relative">
+          <div class="absolute inset-0 bg-emerald/[0.04] rounded-2xl blur-[40px] scale-95"></div>
+          <div class="relative rounded-2xl border border-edge overflow-hidden shadow-2xl bg-surface">
+            <!-- Header -->
+            <div class="flex items-center justify-between px-5 py-3 border-b border-edge bg-surface-alt">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-emerald)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span class="text-xs font-semibold text-ink font-display">Version History</span>
+              </div>
+              <span class="text-[10px] text-faint">Homepage Hero</span>
+            </div>
+
+            <!-- Version list -->
+            <div class="px-4 py-3 space-y-1.5 border-b border-edge">
+              <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald/5 border border-emerald/20">
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono font-semibold text-emerald">v12</span>
+                  <span class="text-[10px] text-ink">Updated hero CTA</span>
+                </div>
+                <span class="text-[9px] text-faint">2 min ago</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-alt transition">
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono text-muted">v11</span>
+                  <span class="text-[10px] text-prose">Changed heading text</span>
+                </div>
+                <span class="text-[9px] text-faint">1 hour ago</span>
+              </div>
+              <div class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-alt transition">
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono text-muted">v10</span>
+                  <span class="text-[10px] text-prose">Added testimonials section</span>
+                </div>
+                <span class="text-[9px] text-faint">3 hours ago</span>
+              </div>
+            </div>
+
+            <!-- Diff preview -->
+            <div class="px-4 py-3">
+              <div class="text-[9px] text-faint uppercase tracking-wider mb-2">Diff: v11 &rarr; v12</div>
+              <div class="rounded-lg border border-edge overflow-hidden font-mono text-[10px] leading-relaxed">
+                <div class="px-3 py-1.5 bg-surface-alt text-muted">&nbsp;&nbsp;&lt;div class="text-center"&gt;</div>
+                <div class="px-3 py-1.5 bg-[#fef2f2] text-[#dc2626]">- &nbsp;&lt;a href="#" class="btn"&gt;Learn More&lt;/a&gt;</div>
+                <div class="px-3 py-1.5 bg-[#f0fdf4] text-[#16a34a]">+ &nbsp;&lt;a href="/start" class="btn"&gt;Get Started&lt;/a&gt;</div>
+                <div class="px-3 py-1.5 bg-surface-alt text-muted">&nbsp;&nbsp;&lt;/div&gt;</div>
+              </div>
+              <div class="flex items-center gap-4 mt-2">
+                <span class="text-[9px] text-[#16a34a]">+1 line</span>
+                <span class="text-[9px] text-[#dc2626]">-1 line</span>
+                <span class="text-[9px] text-faint">+12 bytes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text (right) -->
+      <div class="order-1 lg:order-2">
+        <p class="text-xs uppercase tracking-[0.2em] text-emerald font-medium mb-4 reveal">Page Versioning</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-6 reveal">
+          Every change tracked.<br>
+          <span class="text-muted">Roll back in one click.</span>
+        </h2>
+        <p class="text-muted leading-relaxed mb-8 reveal">
+          ActiveCanvas automatically snapshots content and CSS every time a page is saved. Unified diffs show exactly what changed, and you can restore any previous version instantly.
+        </p>
+
+        <div class="space-y-4 reveal">
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-emerald/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-emerald)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Automatic version tracking</p>
+              <p class="text-xs text-faint mt-0.5">Every save creates a new version — no manual action required</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-emerald/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-emerald)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Visual diffs</p>
+              <p class="text-xs text-faint mt-0.5">See line-by-line changes between any two versions with content and CSS tracking</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-emerald/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-emerald)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Configurable retention</p>
+              <p class="text-xs text-faint mt-0.5">Keep up to 50 versions per page by default, or set <code class="font-mono text-[10px] bg-code-bg text-coral px-1 rounded border border-edge">max_versions_per_page</code> to any value</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-emerald/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-emerald)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Size tracking</p>
+              <p class="text-xs text-faint mt-0.5">Byte-level size differences for each version to monitor content growth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== MEDIA LIBRARY ==================== -->
+<section class="py-24 md:py-32 bg-cream-warm">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Text (left) -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.2em] text-[#a78bfa] font-medium mb-4 reveal">Media Library</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-6 reveal">
+          Upload, manage, embed.<br>
+          <span class="text-muted">Active Storage under the hood.</span>
+        </h2>
+        <p class="text-muted leading-relaxed mb-8 reveal">
+          The built-in media library integrates directly with the GrapeJS editor. Drag images from the library into your pages, or upload new assets without leaving the editor.
+        </p>
+
+        <div class="space-y-4 reveal">
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-[#a78bfa]/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">JPEG, PNG, GIF, WebP, AVIF, PDF</p>
+              <p class="text-xs text-faint mt-0.5">Optional SVG support with configurable security settings</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-[#a78bfa]/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Any storage backend</p>
+              <p class="text-xs text-faint mt-0.5">Local disk, Amazon S3, Google Cloud Storage, or Azure Blob Storage via Active Storage</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-[#a78bfa]/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Signed or public URLs</p>
+              <p class="text-xs text-faint mt-0.5">Secure signed URLs by default, or enable <code class="font-mono text-[10px] bg-code-bg text-coral px-1 rounded border border-edge">public_uploads</code> for direct CDN access</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-full bg-[#a78bfa]/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm text-ink font-medium">Automatic thumbnails</p>
+              <p class="text-xs text-faint mt-0.5">Image variants generated on the fly for the editor grid and previews</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual (right) — media grid mockup -->
+      <div class="reveal">
+        <div class="relative">
+          <div class="absolute inset-0 bg-[#a78bfa]/[0.04] rounded-2xl blur-[40px] scale-95"></div>
+          <div class="relative rounded-2xl border border-edge overflow-hidden shadow-2xl bg-surface">
+            <!-- Header -->
+            <div class="flex items-center justify-between px-5 py-3 border-b border-edge bg-surface-alt">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                <span class="text-xs font-semibold text-ink font-display">Media Library</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] text-faint">24 files</span>
+                <div class="px-2.5 py-1 rounded-md bg-[#a78bfa]/10 text-[#a78bfa] text-[10px] font-medium">Upload</div>
+              </div>
+            </div>
+
+            <!-- Media grid -->
+            <div class="p-4 grid grid-cols-3 gap-2.5">
+              <div class="aspect-square rounded-lg bg-indigo-100 flex items-center justify-center border border-edge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-faint)" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              </div>
+              <div class="aspect-square rounded-lg bg-amber-100 flex items-center justify-center border border-edge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-faint)" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              </div>
+              <div class="aspect-square rounded-lg bg-emerald-100 flex items-center justify-center border border-edge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-faint)" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              </div>
+              <div class="aspect-square rounded-lg bg-rose-100 flex items-center justify-center border border-edge ring-2 ring-[#a78bfa] ring-offset-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-faint)" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              </div>
+              <div class="aspect-square rounded-lg bg-sky-100 flex items-center justify-center border border-edge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-faint)" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              </div>
+              <div class="aspect-square rounded-lg border-2 border-dashed border-edge flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-faint)" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </div>
+
+            <!-- File info bar -->
+            <div class="px-5 py-2.5 border-t border-edge bg-surface-alt flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-4 h-4 rounded bg-rose-200"></div>
+                <span class="text-[10px] text-ink font-medium">hero-banner.webp</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-[9px] text-faint">1920 x 1080</span>
+                <span class="text-[9px] text-faint">245 KB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== AUTHENTICATION ==================== -->
+<section class="py-24 md:py-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <p class="text-xs uppercase tracking-[0.2em] text-[#f472b6] font-medium mb-4">Authentication</p>
+      <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-6">
+        Four ways to lock it down.<br>
+        <span class="text-muted">Pick what fits your app.</span>
+      </h2>
+      <p class="text-muted text-lg max-w-xl mx-auto">
+        ActiveCanvas runs in an isolated engine namespace, so authentication never conflicts with your app. Choose from Devise, custom controllers, HTTP Basic, or lambda-based auth.
       </p>
-      <div class="flex flex-wrap gap-3 animate-slide-up stagger-3">
-        <span class="px-4 py-2 rounded-full bg-white border border-ink-200/50 text-sm font-semibold text-ink-700 shadow-sm">MIT Licensed</span>
-        <span class="px-4 py-2 rounded-full bg-white border border-ink-200/50 text-sm font-semibold text-ink-700 shadow-sm">PageSpeed 100 Ready</span>
-        <span class="px-4 py-2 rounded-full bg-white border border-ink-200/50 text-sm font-semibold text-ink-700 shadow-sm">AI-native workflow</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
-</section>
-
-<!-- Feature Pillars -->
-<section class="py-24 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="card-grid cols-3 mb-12">
-      <div class="card p-8 glow-border">
-        <div class="flex items-center gap-4 mb-5">
-          <div class="icon-box bg-gradient-to-br from-primary-100 to-primary-50">
-            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-ink-900">Visual + Code</h3>
-        </div>
-        <p class="text-ink-500 leading-relaxed">Point-and-click editing meets live HTML/CSS. Toggle between visual mode and code view without losing context or introducing div soup.</p>
-      </div>
-
-      <div class="card p-8 glow-border">
-        <div class="flex items-center gap-4 mb-5">
-          <div class="icon-box bg-gradient-to-br from-accent-500/20 to-accent-500/10">
-            <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-ink-900">Screenshot → Code</h3>
-        </div>
-        <p class="text-ink-500 leading-relaxed">Upload a design, let AI draft semantic markup, then refine with prompts or hand edits. Export clean HTML you can actually ship.</p>
-      </div>
-
-      <div class="card p-8 glow-border">
-        <div class="flex items-center gap-4 mb-5">
-          <div class="icon-box bg-gradient-to-br from-warm-400/20 to-warm-400/10">
-            <svg class="w-6 h-6 text-warm-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-ink-900">Zero Bloat</h3>
-        </div>
-        <p class="text-ink-500 leading-relaxed">No heavy runtime, no opaque shortcodes. Ship lightweight pages that keep Lighthouse scores pinned at 100.</p>
-      </div>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-6">
-      <div class="card p-8 glow-border">
-        <h4 class="font-display font-bold text-xl text-ink-900 mb-4">AI co-pilot that stays out of your way</h4>
-        <p class="text-ink-500 leading-relaxed mb-6">Use the assistant to scaffold sections, translate designs, or refactor markup. You keep final say on every class, attribute, and animation.</p>
-        <ul class="space-y-3 text-sm text-ink-600">
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            Context aware suggestions based on your current page
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            Prompt once to generate, then iterate in place
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            Works offline when AI is disabled — nothing breaks
-          </li>
-        </ul>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal-stagger">
+
+      <!-- Devise -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-[#f472b6]/10 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-semibold text-ink">Devise Integration</h3>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-4">Point to your existing Devise method and you are done. Works with any Warden-based strategy.</p>
+        <div class="code-block">
+          <div class="code-block-body text-[11px] leading-[1.8] py-3 px-4">
+            <span class="var">config</span><span class="op">.</span>authenticate_admin <span class="op">=</span> <span class="op">:</span><span class="str">authenticate_user!</span>
+          </div>
+        </div>
       </div>
 
-      <div class="card p-8 glow-border">
-        <h4 class="font-display font-bold text-xl text-ink-900 mb-4">LiveCanvas-inspired performance discipline</h4>
-        <p class="text-ink-500 leading-relaxed mb-6">We borrow the "HTML first" mantra: everything is plain markup and utility classes. No hidden layout engines or bulky abstractions.</p>
-        <ul class="space-y-3 text-sm text-ink-600">
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            Works with any CSS toolkit (Tailwind, Bootstrap, vanilla)
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            Export static files for Netlify, Vercel, S3, or your own box
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            Keep your repo tidy — no custom binary assets required
-          </li>
-        </ul>
+      <!-- Parent controller -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-steel/10 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-steel)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-semibold text-ink">Parent Controller</h3>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-4">Inherit authentication from your own admin base controller. All before_actions and helpers carry over.</p>
+        <div class="code-block">
+          <div class="code-block-body text-[11px] leading-[1.8] py-3 px-4">
+            <span class="var">config</span><span class="op">.</span>admin_parent_controller <span class="op">=</span><br>
+            &nbsp;&nbsp;<span class="str">"Admin::ApplicationController"</span>
+          </div>
+        </div>
       </div>
+
+      <!-- HTTP Basic -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-gold-400/10 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-semibold text-ink">HTTP Basic Auth</h3>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-4">Quick setup for staging or internal tools. Credentials stored in Rails credentials for security.</p>
+        <div class="code-block">
+          <div class="code-block-body text-[11px] leading-[1.8] py-3 px-4">
+            <span class="var">config</span><span class="op">.</span>authenticate_admin <span class="op">=</span> <span class="op">:</span><span class="str">http_basic_auth</span><br>
+            <span class="var">config</span><span class="op">.</span>http_basic_user <span class="op">=</span> <span class="str">"admin"</span><br>
+            <span class="var">config</span><span class="op">.</span>http_basic_password <span class="op">=</span><br>
+            &nbsp;&nbsp;<span class="fn">Rails</span><span class="op">.</span>application<span class="op">.</span>credentials<span class="op">.</span>canvas_pw
+          </div>
+        </div>
+      </div>
+
+      <!-- Lambda -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-semibold text-ink">Lambda / Proc</h3>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-4">Full control with a lambda. Runs as a before_action on every admin request. Perfect for custom auth systems.</p>
+        <div class="code-block">
+          <div class="code-block-body text-[11px] leading-[1.8] py-3 px-4">
+            <span class="var">config</span><span class="op">.</span>authenticate_admin <span class="op">=</span> <span class="op">-></span> <span class="op">{</span><br>
+            &nbsp;&nbsp;<span class="fn">redirect_to</span> login_path \<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">unless</span> current_user<span class="op">&.</span>admin?<br>
+            <span class="op">}</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- Workflow Timeline -->
-<section class="py-24 mesh-section">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-      <div>
-        <h2 class="font-display section-subtitle text-ink-900 mb-4">A workflow that respects your codebase</h2>
-        <p class="text-ink-500 max-w-2xl">Modelled after the best parts of LiveCanvas: start from HTML, enhance visually, and finish with production-ready assets.</p>
+
+<!-- ==================== SEO & OPEN GRAPH ==================== -->
+<section class="py-24 md:py-32 bg-cream-warm">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <div class="reveal">
+      <p class="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium mb-4">SEO &amp; Open Graph</p>
+      <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-6">
+        Search-ready out of the box.
+      </h2>
+      <p class="text-muted text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
+        Every page includes editable meta title, description, Open Graph tags, and Twitter Card fields. ActiveCanvas also supports JSON-LD structured data for rich search results.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 reveal-stagger">
+      <div class="feature-card rounded-xl p-5 text-center reveal">
+        <div class="w-10 h-10 rounded-xl bg-gold-400/10 flex items-center justify-center mx-auto mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3 class="font-display text-sm font-semibold text-ink mb-1">Meta Tags</h3>
+        <p class="text-xs text-muted">Title, description, and canonical URL per page</p>
       </div>
-      <a href="/docs" class="inline-flex items-center gap-2 px-6 py-3 rounded-full btn-primary text-white font-semibold">
-        View Docs
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+
+      <div class="feature-card rounded-xl p-5 text-center reveal">
+        <div class="w-10 h-10 rounded-xl bg-steel/10 flex items-center justify-center mx-auto mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-steel)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </div>
+        <h3 class="font-display text-sm font-semibold text-ink mb-1">Open Graph</h3>
+        <p class="text-xs text-muted">og:title, og:description, og:image for social sharing</p>
+      </div>
+
+      <div class="feature-card rounded-xl p-5 text-center reveal">
+        <div class="w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center mx-auto mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 class="font-display text-sm font-semibold text-ink mb-1">JSON-LD</h3>
+        <p class="text-xs text-muted">Structured data for rich snippets in search results</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== BOTTOM CTA ==================== -->
+<section class="py-28 md:py-40 relative overflow-hidden bg-cream">
+  <!-- Background -->
+  <div class="absolute inset-0">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gold-400/[0.04] rounded-full blur-[100px]"></div>
+    <div class="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-coral/[0.03] rounded-full blur-[80px]"></div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+    <div class="reveal">
+      <h2 class="font-display text-4xl md:text-6xl font-semibold tracking-tight mb-6">
+        Get started in<br>
+        <span class="text-gradient-gold">60 seconds.</span>
+      </h2>
+      <p class="text-lg text-muted leading-relaxed mb-10 max-w-lg mx-auto">
+        One gem. One install command. A full CMS inside your Rails app.
+      </p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+      <a href="{{ '/guides/getting-started.html' | relative_url }}"
+         class="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gold-400 text-white font-semibold text-sm hover:shadow-lg transition-all duration-300">
+        Quick Start
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover:translate-x-0.5">
+          <path d="m9 18 6-6-6-6"/>
         </svg>
       </a>
-    </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="card p-6">
-        <div class="text-sm font-bold gradient-text-static mb-2">01</div>
-        <h4 class="font-display font-bold text-lg text-ink-900 mb-2">Start from HTML</h4>
-        <p class="text-ink-500 text-sm leading-relaxed">Pick a template or import your own markup. Nothing proprietary.</p>
-      </div>
-      <div class="card p-6">
-        <div class="text-sm font-bold gradient-text-static mb-2">02</div>
-        <h4 class="font-display font-bold text-lg text-ink-900 mb-2">Edit visually</h4>
-        <p class="text-ink-500 text-sm leading-relaxed">Drag, resize, and rewrite copy directly on the canvas with inline styles visible.</p>
-      </div>
-      <div class="card p-6">
-        <div class="text-sm font-bold gradient-text-static mb-2">03</div>
-        <h4 class="font-display font-bold text-lg text-ink-900 mb-2">Refine with AI</h4>
-        <p class="text-ink-500 text-sm leading-relaxed">Ask for tweaks, accessibility fixes, or responsive variants. Accept or edit the diff.</p>
-      </div>
-      <div class="card p-6">
-        <div class="text-sm font-bold gradient-text-static mb-2">04</div>
-        <h4 class="font-display font-bold text-lg text-ink-900 mb-2">Export and deploy</h4>
-        <p class="text-ink-500 text-sm leading-relaxed">Download static HTML/CSS or push to your repo. Host anywhere — no lock-in.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Comparison -->
-<section class="py-24 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="font-display section-subtitle text-ink-900 mb-4">Designed for teams who hate bloat</h2>
-      <p class="text-ink-500 max-w-2xl mx-auto">Skip the heavy builders and keep your front-end crisp. Here is what stays different.</p>
-    </div>
-
-    <div class="overflow-hidden rounded-2xl border border-ink-200/50 bg-white shadow-elevated">
-      <div class="grid grid-cols-3 bg-ink-50 text-sm font-semibold text-ink-500 uppercase tracking-wide border-b border-ink-200/50">
-        <div class="px-6 py-4 text-left">Capability</div>
-        <div class="px-6 py-4 text-left text-primary-600">ActiveCanvas</div>
-        <div class="px-6 py-4 text-left">Traditional Builder</div>
-      </div>
-      <div class="divide-y divide-ink-200/50">
-        <div class="grid grid-cols-3 px-6 py-5 text-sm">
-          <div class="font-semibold text-ink-900">HTML-first output</div>
-          <div class="text-primary-600 font-semibold">Semantic, clean, exportable</div>
-          <div class="text-ink-500">Shortcodes and proprietary blocks</div>
-        </div>
-        <div class="grid grid-cols-3 px-6 py-5 text-sm">
-          <div class="font-semibold text-ink-900">Performance budget</div>
-          <div class="text-primary-600 font-semibold">PageSpeed 100 target</div>
-          <div class="text-ink-500">Extra JS/CSS bundles</div>
-        </div>
-        <div class="grid grid-cols-3 px-6 py-5 text-sm">
-          <div class="font-semibold text-ink-900">AI assistance</div>
-          <div class="text-primary-600 font-semibold">Context-aware, optional</div>
-          <div class="text-ink-500">None or opaque generators</div>
-        </div>
-        <div class="grid grid-cols-3 px-6 py-5 text-sm">
-          <div class="font-semibold text-ink-900">Export</div>
-          <div class="text-primary-600 font-semibold">Static HTML, no lock-in</div>
-          <div class="text-ink-500">Tied to platform</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="py-24 mesh-hero relative overflow-hidden">
-  <div class="noise-overlay absolute inset-0"></div>
-  <div class="grid-pattern absolute inset-0"></div>
-
-  <div class="relative max-w-5xl mx-auto px-6 text-center">
-    <h2 class="font-display section-subtitle text-ink-900 mb-6">Ship faster without sacrificing control.</h2>
-    <p class="text-lg text-ink-500 mb-10 max-w-2xl mx-auto">Bring the LiveCanvas spirit to your stack with AI superpowers, open source licensing, and a workflow your developers actually trust.</p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="/templates" class="inline-flex items-center gap-2 px-8 py-4 rounded-full btn-primary text-white font-semibold">
-        Browse Templates
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      <a href="https://github.com/giovapanasiti/active_canvas" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl border border-edge hover:border-edge-light bg-surface hover:bg-surface-alt text-ink text-sm font-medium transition-all duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
         </svg>
-      </a>
-      <a href="/pricing" class="inline-flex items-center gap-2 px-8 py-4 rounded-full btn-secondary text-ink-700 font-semibold">
-        View Pricing
+        View on GitHub
       </a>
     </div>
   </div>
 </section>
-
-<!-- Footer -->
-<footer class="relative py-20 bg-ink-950 text-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-      <div class="lg:col-span-1">
-        <a href="/" class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-            </svg>
-          </div>
-          <span class="text-xl font-display font-bold">Active<span class="text-primary-400">Canvas</span></span>
-        </a>
-        <p class="text-ink-400 text-sm mb-6 leading-relaxed">The professional page builder with AI-powered code generation and zero bloat.</p>
-      </div>
-      <div>
-        <h4 class="font-display font-bold text-white mb-5">Product</h4>
-        <ul class="space-y-3 text-sm">
-          <li><a href="/features" class="text-ink-400 hover:text-white transition-colors">Features</a></li>
-          <li><a href="/templates" class="text-ink-400 hover:text-white transition-colors">Templates</a></li>
-          <li><a href="/pricing" class="text-ink-400 hover:text-white transition-colors">Pricing</a></li>
-          <li><a href="/docs" class="text-ink-400 hover:text-white transition-colors">Documentation</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-display font-bold text-white mb-5">Resources</h4>
-        <ul class="space-y-3 text-sm">
-          <li><a href="/docs" class="text-ink-400 hover:text-white transition-colors">Getting Started</a></li>
-          <li><a href="/docs#guides" class="text-ink-400 hover:text-white transition-colors">Tutorials</a></li>
-          <li><a href="/templates" class="text-ink-400 hover:text-white transition-colors">Examples</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-display font-bold text-white mb-5">Community</h4>
-        <ul class="space-y-3 text-sm">
-          <li><a href="https://github.com" class="text-ink-400 hover:text-white transition-colors">GitHub</a></li>
-          <li><a href="https://discord.gg" class="text-ink-400 hover:text-white transition-colors">Discord</a></li>
-          <li><a href="https://twitter.com" class="text-ink-400 hover:text-white transition-colors">Twitter</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="pt-8 border-t border-ink-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-ink-500">© 2025 ActiveCanvas. Open source under MIT License.</p>
-      <div class="flex items-center gap-6 text-sm">
-        <a href="/privacy" class="text-ink-500 hover:text-white transition-colors">Privacy</a>
-        <a href="/terms" class="text-ink-500 hover:text-white transition-colors">Terms</a>
-      </div>
-    </div>
-  </div>
-</footer>

@@ -1,1061 +1,788 @@
 ---
 layout: default
-title: ActiveCanvas — A Mountable Rails Engine for Page Management
+title: ActiveCanvas — AI-Powered CMS Engine for Rails
+description: The open-source CMS engine for Rails 8+. Visual page builder, AI content generation, and production-ready Tailwind CSS — all in one mountable gem.
 ---
 
-<!-- Pre-Alpha Ribbon -->
-<div class="fixed top-0 right-0 z-[60] overflow-hidden w-[150px] h-[150px] pointer-events-none">
-  <div class="absolute top-[28px] right-[-40px] w-[200px] text-center transform rotate-45 py-1.5 text-[11px] font-bold tracking-widest uppercase text-white" style="background: linear-gradient(135deg, #f97316, #ef4444); box-shadow: 0 4px 12px -2px rgba(239, 68, 68, 0.4);">
-    Pre-Alpha
+<!-- ==================== HERO ==================== -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+  <!-- Aurora background -->
+  <div class="aurora-bg">
+    <div class="aurora-orb aurora-orb-1"></div>
+    <div class="aurora-orb aurora-orb-2"></div>
+    <div class="aurora-orb aurora-orb-3"></div>
   </div>
-</div>
 
-<!-- Navigation -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-surface-200/50">
-  <div class="max-w-6xl mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2.5 group">
-        <div class="w-9 h-9 rounded-[10px] bg-gradient-to-br from-canvas-600 to-canvas-500 flex items-center justify-center shadow-lg shadow-canvas-500/20 group-hover:shadow-canvas-500/30 transition-shadow">
-          <svg class="w-[20px] h-[20px] text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-            <polyline points="2 17 12 22 22 17"/>
-            <polyline points="2 12 12 17 22 12"/>
-          </svg>
-        </div>
-        <span class="text-lg font-display font-bold tracking-tight">Active<span class="gradient-text-static">Canvas</span></span>
-      </a>
+  <!-- Dot grid -->
+  <div class="absolute inset-0 dot-grid opacity-[0.03]"></div>
 
-      <!-- Nav links -->
-      <div class="hidden md:flex items-center gap-1">
-        <a href="#features" class="px-3.5 py-2 text-sm font-medium text-surface-500 hover:text-surface-900 rounded-lg transition-colors">Features</a>
-        <a href="#installation" class="px-3.5 py-2 text-sm font-medium text-surface-500 hover:text-surface-900 rounded-lg transition-colors">Install</a>
-        <a href="#ai" class="px-3.5 py-2 text-sm font-medium text-surface-500 hover:text-surface-900 rounded-lg transition-colors">AI</a>
-        <a href="#configuration" class="px-3.5 py-2 text-sm font-medium text-surface-500 hover:text-surface-900 rounded-lg transition-colors">Config</a>
-      </div>
-
-      <!-- CTA -->
-      <div class="flex items-center gap-3">
-        <a href="https://github.com/giovapanasiti/active_canvas" target="_blank" class="hidden sm:flex items-center gap-2 px-3.5 py-2 text-sm font-medium text-surface-500 hover:text-surface-900 rounded-lg transition-colors">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="#installation" class="inline-flex items-center gap-2 px-5 py-2 rounded-full btn-primary text-white text-sm font-semibold">
-          Get Started
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<!-- ================================================================ -->
-<!-- HERO -->
-<!-- ================================================================ -->
-<section class="relative min-h-[90vh] flex items-center overflow-hidden mesh-hero">
-  <div class="noise-overlay absolute inset-0"></div>
-  <div class="grid-pattern absolute inset-0"></div>
-
-  <div class="relative max-w-6xl mx-auto px-6 pt-32 pb-20">
-    <div class="max-w-3xl mx-auto text-center">
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32">
+    <div class="text-center max-w-4xl mx-auto">
       <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-surface-200/50 mb-8 animate-slide-up">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-        </span>
-        <span class="text-sm font-medium text-surface-600">Open Source &middot; MIT License &middot; Ruby Gem</span>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-edge bg-surface backdrop-blur-sm mb-8"
+           style="animation: fade-up 0.6s ease both;">
+        <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+        <span class="text-xs font-medium text-muted">Open Source &middot; MIT Licensed &middot; Rails 8+</span>
       </div>
 
       <!-- Headline -->
-      <h1 class="font-display section-title text-surface-900 mb-6 animate-slide-up stagger-1">
-        A page management engine<br>
-        <span class="gradient-text">for Ruby on Rails</span>
+      <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[0.95] mb-8"
+          style="animation: fade-up 0.6s ease 0.15s both;">
+        Your Rails app<br>
+        <span class="text-gradient-gold">deserves a canvas.</span>
       </h1>
 
-      <p class="text-lg text-surface-500 mb-10 max-w-2xl mx-auto leading-relaxed animate-slide-up stagger-2">
-        ActiveCanvas is a <strong class="text-surface-700 font-semibold">mountable Rails engine</strong> that gives your app
-        a visual page editor, AI-powered content generation, and per-page Tailwind CSS compilation.
-        Mount it. Configure it. Ship pages.
+      <!-- Subtitle -->
+      <p class="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto mb-12"
+         style="animation: fade-up 0.6s ease 0.3s both;">
+        ActiveCanvas is an open-source CMS engine for Rails 8+. Drop in a visual page builder, AI content generation, and production-ready Tailwind CSS compilation — without leaving your monolith.
       </p>
 
-      <!-- Install command -->
-      <div class="max-w-md mx-auto mb-10 animate-slide-up stagger-3">
-        <div class="flex items-center gap-2 p-1.5 rounded-2xl bg-white border border-surface-200/60 shadow-elevated">
-          <div class="flex-1 px-4 py-2.5 font-mono text-sm text-left text-surface-700 flex items-center gap-2.5 overflow-x-auto">
-            <span class="text-canvas-500 select-none font-semibold">$</span>
-            <span>bundle add active_canvas</span>
-          </div>
-          <button onclick="navigator.clipboard.writeText('bundle add active_canvas')" class="px-4 py-2.5 rounded-xl bg-surface-100 hover:bg-surface-200 transition-colors text-sm font-medium text-surface-500 hover:text-surface-800 flex-shrink-0">
-            Copy
-          </button>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 animate-slide-up stagger-4">
-        <a href="#installation" class="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full btn-primary text-white font-semibold">
-          Quick Start Guide
-          <svg class="w-4 h-4 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4"
+           style="animation: fade-up 0.6s ease 0.45s both;">
+        <a href="{{ '/guides/getting-started.html' | relative_url }}"
+           class="group inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gold-400 text-white font-semibold text-sm hover:shadow-lg transition-all duration-300">
+          Quick Start
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover:translate-x-0.5">
+            <path d="m9 18 6-6-6-6"/>
           </svg>
         </a>
-        <a href="https://github.com/giovapanasiti/active_canvas" target="_blank" class="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full btn-secondary text-surface-700 font-semibold">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        <a href="https://github.com/giovapanasiti/active_canvas" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl border border-edge hover:border-edge-light bg-surface hover:bg-surface-alt text-ink text-sm font-medium transition-all duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
           View on GitHub
         </a>
       </div>
-
-      <!-- Tech pills -->
-      <div class="flex flex-wrap items-center justify-center gap-2 animate-slide-up stagger-5">
-        <span class="px-3.5 py-1.5 rounded-full bg-red-50 text-red-700 text-xs font-semibold border border-red-100">Ruby 3.1+</span>
-        <span class="px-3.5 py-1.5 rounded-full bg-red-50 text-red-700 text-xs font-semibold border border-red-100">Rails 8.0+</span>
-        <span class="px-3.5 py-1.5 rounded-full bg-cyan-50 text-cyan-700 text-xs font-semibold border border-cyan-100">Tailwind CSS v4</span>
-        <span class="px-3.5 py-1.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-100">GrapeJS Editor</span>
-        <span class="px-3.5 py-1.5 rounded-full bg-canvas-50 text-canvas-700 text-xs font-semibold border border-canvas-100">AI-Powered</span>
-      </div>
     </div>
 
-    <!-- Hero Video -->
-    <div class="max-w-4xl mx-auto mt-16 animate-slide-up stagger-5">
-      <div class="rounded-2xl overflow-hidden border border-surface-200/60 shadow-elevated-lg" style="background: linear-gradient(180deg, #f5f5f5 0%, #fff 100%);">
-        <!-- Browser chrome -->
-        <div class="bg-surface-100/80 px-4 py-3 flex items-center gap-3 border-b border-surface-200/50">
+    <!-- Editor Mockup (keeps dark internal colors — shows the actual product UI) -->
+    <div class="mt-20 md:mt-28 animate-float" style="animation: fade-up 0.8s ease 0.6s both;">
+      <div class="editor-mockup rounded-xl overflow-hidden border border-edge mx-auto max-w-5xl">
+        <!-- Chrome -->
+        <div class="flex items-center gap-3 px-4 py-3 bg-surface-alt border-b border-edge">
           <div class="flex gap-1.5">
-            <div class="w-3 h-3 rounded-full bg-surface-300"></div>
-            <div class="w-3 h-3 rounded-full bg-surface-300"></div>
-            <div class="w-3 h-3 rounded-full bg-surface-300"></div>
+            <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
           </div>
-          <div class="flex-1 flex justify-center">
-            <div class="px-4 py-1.5 bg-white rounded-lg text-xs text-surface-500 font-mono border border-surface-200/50 flex items-center gap-2">
-              <svg class="w-3 h-3 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
-              </svg>
-              localhost:3000/canvas/admin
-            </div>
+          <div class="flex-1 flex items-center justify-center">
+            <div class="px-4 py-1 rounded-md bg-surface text-xs font-mono text-faint">ActiveCanvas Editor &mdash; My Landing Page</div>
           </div>
+          <div class="w-12"></div>
         </div>
 
-        <!-- YouTube Video Embed -->
-        <div class="aspect-video bg-surface-950">
-          <iframe
-            class="w-full h-full"
-            src="https://www.youtube.com/embed/VIDEO_ID_HERE?rel=0&modestbranding=1&showinfo=0"
-            title="ActiveCanvas Editor Demo"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+        <!-- Editor Body (dark themed — this IS the product) -->
+        <div class="flex bg-cream-warm" style="height: 340px;">
+          <!-- Left: AI Panel -->
+          <div class="w-56 border-r border-edge bg-surface flex flex-col shrink-0 hidden lg:flex">
+            <div class="px-3 py-2.5 border-b border-edge flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/>
+                <path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>
+              </svg>
+              <span class="text-xs font-medium text-ink">AI Assistant</span>
+            </div>
+            <div class="flex-1 p-3 space-y-3 overflow-hidden">
+              <div class="flex gap-1.5 mb-3">
+                <div class="px-2.5 py-1 rounded-md bg-gold-400/10 text-gold-400 text-[10px] font-medium">Generate</div>
+                <div class="px-2.5 py-1 rounded-md text-faint text-[10px] font-medium">Image</div>
+                <div class="px-2.5 py-1 rounded-md text-faint text-[10px] font-medium">Screenshot</div>
+              </div>
+              <div class="space-y-2">
+                <div class="text-[10px] text-muted">Model</div>
+                <div class="px-2.5 py-1.5 rounded-md bg-surface-alt border border-edge text-[10px] text-ink-light">GPT-4o</div>
+              </div>
+              <div class="flex-1 rounded-lg bg-surface-alt/50 p-2.5 mt-2">
+                <div class="text-[10px] text-faint italic">Create a hero section with a bold heading, gradient background...</div>
+              </div>
+              <div class="rounded-lg bg-surface-alt border border-edge px-2.5 py-2 mt-auto">
+                <div class="flex gap-1 mb-1.5">
+                  <div class="w-1 h-1 rounded-full bg-gold-400 animate-pulse"></div>
+                  <div class="w-1 h-1 rounded-full bg-gold-400 animate-pulse" style="animation-delay: 0.15s"></div>
+                  <div class="w-1 h-1 rounded-full bg-gold-400 animate-pulse" style="animation-delay: 0.3s"></div>
+                </div>
+                <div class="text-[9px] text-muted leading-relaxed">&lt;section class="py-24"&gt;<br>&nbsp;&nbsp;&lt;div class="max-w-7xl..."&gt;</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center: Canvas -->
+          <div class="flex-1 p-4 md:p-6 overflow-hidden bg-surface-alt">
+            <div class="bg-white rounded-lg h-full overflow-hidden shadow-lg">
+              <!-- Mock nav -->
+              <div class="flex items-center justify-between px-5 py-3 border-b border-gray-100">
+                <div class="w-16 h-3 rounded bg-gray-800"></div>
+                <div class="flex gap-4">
+                  <div class="w-10 h-2 rounded bg-gray-200"></div>
+                  <div class="w-10 h-2 rounded bg-gray-200"></div>
+                  <div class="w-10 h-2 rounded bg-gray-200"></div>
+                </div>
+                <div class="w-14 h-5 rounded-md bg-indigo-500"></div>
+              </div>
+              <!-- Mock hero -->
+              <div class="px-5 py-6 text-center bg-indigo-50">
+                <div class="w-48 h-4 rounded bg-gray-800 mx-auto mb-2.5"></div>
+                <div class="w-64 h-3 rounded bg-gray-300 mx-auto mb-4"></div>
+                <div class="flex justify-center gap-2">
+                  <div class="w-20 h-6 rounded-md bg-indigo-500"></div>
+                  <div class="w-20 h-6 rounded-md bg-gray-200"></div>
+                </div>
+              </div>
+              <!-- Mock features -->
+              <div class="px-5 py-4">
+                <div class="grid grid-cols-3 gap-3">
+                  <div class="p-3 rounded-lg bg-gray-50 border border-gray-100">
+                    <div class="w-6 h-6 rounded bg-indigo-100 mb-2"></div>
+                    <div class="w-16 h-2 rounded bg-gray-300 mb-1.5"></div>
+                    <div class="w-full h-1.5 rounded bg-gray-200"></div>
+                    <div class="w-3/4 h-1.5 rounded bg-gray-200 mt-1"></div>
+                  </div>
+                  <div class="p-3 rounded-lg bg-gray-50 border border-gray-100 ring-2 ring-indigo-400 ring-offset-1">
+                    <div class="w-6 h-6 rounded bg-emerald-100 mb-2"></div>
+                    <div class="w-14 h-2 rounded bg-gray-300 mb-1.5"></div>
+                    <div class="w-full h-1.5 rounded bg-gray-200"></div>
+                    <div class="w-2/3 h-1.5 rounded bg-gray-200 mt-1"></div>
+                  </div>
+                  <div class="p-3 rounded-lg bg-gray-50 border border-gray-100">
+                    <div class="w-6 h-6 rounded bg-amber-100 mb-2"></div>
+                    <div class="w-12 h-2 rounded bg-gray-300 mb-1.5"></div>
+                    <div class="w-full h-1.5 rounded bg-gray-200"></div>
+                    <div class="w-4/5 h-1.5 rounded bg-gray-200 mt-1"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Styles Panel -->
+          <div class="w-52 border-l border-edge bg-surface flex-col shrink-0 hidden md:flex">
+            <div class="flex border-b border-edge">
+              <div class="flex-1 px-3 py-2.5 text-xs font-medium text-ink text-center border-b-2 border-gold-400">Styles</div>
+              <div class="flex-1 px-3 py-2.5 text-xs font-medium text-faint text-center">Settings</div>
+            </div>
+            <div class="p-3 space-y-3">
+              <div>
+                <div class="text-[10px] text-faint mb-1.5 uppercase tracking-wider">Spacing</div>
+                <div class="grid grid-cols-2 gap-1.5">
+                  <div class="px-2 py-1 rounded bg-surface-alt border border-edge text-[10px] text-muted text-center">24px</div>
+                  <div class="px-2 py-1 rounded bg-surface-alt border border-edge text-[10px] text-muted text-center">16px</div>
+                  <div class="px-2 py-1 rounded bg-surface-alt border border-edge text-[10px] text-muted text-center">24px</div>
+                  <div class="px-2 py-1 rounded bg-surface-alt border border-edge text-[10px] text-muted text-center">16px</div>
+                </div>
+              </div>
+              <div>
+                <div class="text-[10px] text-faint mb-1.5 uppercase tracking-wider">Background</div>
+                <div class="flex gap-1.5">
+                  <div class="w-5 h-5 rounded bg-white border border-edge"></div>
+                  <div class="w-5 h-5 rounded bg-indigo-500"></div>
+                  <div class="w-5 h-5 rounded bg-gray-800"></div>
+                  <div class="w-5 h-5 rounded bg-purple-200"></div>
+                </div>
+              </div>
+              <div>
+                <div class="text-[10px] text-faint mb-1.5 uppercase tracking-wider">Typography</div>
+                <div class="px-2 py-1 rounded bg-surface-alt border border-edge text-[10px] text-muted">Font: Inter</div>
+                <div class="grid grid-cols-2 gap-1.5 mt-1.5">
+                  <div class="px-2 py-1 rounded bg-surface-alt border border-edge text-[10px] text-muted text-center">16px</div>
+                  <div class="px-2 py-1 rounded bg-surface-alt border border-edge text-[10px] text-muted text-center">600</div>
+                </div>
+              </div>
+              <div>
+                <div class="text-[10px] text-faint mb-1.5 uppercase tracking-wider">Border</div>
+                <div class="grid grid-cols-3 gap-1.5">
+                  <div class="px-2 py-1 rounded bg-surface-alt border border-edge text-[10px] text-muted text-center">0</div>
+                  <div class="px-2 py-1 rounded bg-surface-alt border border-edge text-[10px] text-muted text-center">8px</div>
+                  <div class="px-2 py-1 rounded bg-surface-alt border border-edge text-[10px] text-muted text-center">#e5e7</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-faint"
+       style="animation: fade-up 0.6s ease 1s both;">
+    <span class="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
+    <div class="w-px h-8 bg-edge-light"></div>
+  </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- WHAT IS IT -->
-<!-- ================================================================ -->
-<section class="relative py-24 bg-white">
+
+<!-- ==================== BUILT WITH ==================== -->
+<section class="py-16 border-y border-edge">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="max-w-3xl mx-auto text-center mb-16">
-      <span class="pill mb-5">What is ActiveCanvas?</span>
-      <h2 class="font-display section-subtitle text-surface-900 mb-5">A CMS engine you mount into any Rails app.</h2>
-      <p class="text-lg text-surface-500 leading-relaxed">
-        ActiveCanvas is a <strong class="text-surface-700">Ruby gem</strong> that adds a full page management system to your existing Rails application. Mount it at any path &mdash; <code class="text-sm font-mono bg-surface-100 px-2 py-0.5 rounded-md text-canvas-700">/pages</code>, <code class="text-sm font-mono bg-surface-100 px-2 py-0.5 rounded-md text-canvas-700">/cms</code>, or even <code class="text-sm font-mono bg-surface-100 px-2 py-0.5 rounded-md text-canvas-700">/</code> to power your entire site. The engine provides an admin panel and serves published pages at your chosen path. No separate app needed.
+    <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 reveal">
+      <span class="text-xs text-faint uppercase tracking-[0.15em]">Built with</span>
+      <div class="flex items-center gap-10 md:gap-14 flex-wrap justify-center">
+        <div class="flex items-center gap-2 text-muted hover:text-ink transition-colors">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 3.7a1 1 0 00-1.6.2L12 14.4 5.3 3.9A1 1 0 003.4 4a1 1 0 00-.1.4l2.5 16a1 1 0 001 .9h10.4a1 1 0 001-.9l2.5-16a1 1 0 00-.4-.7z"/></svg>
+          <span class="text-sm font-medium">Ruby on Rails</span>
+        </div>
+        <div class="flex items-center gap-2 text-muted hover:text-ink transition-colors">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
+          <span class="text-sm font-medium">Tailwind CSS</span>
+        </div>
+        <div class="flex items-center gap-2 text-muted hover:text-ink transition-colors">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span class="text-sm font-medium">GrapeJS</span>
+        </div>
+        <div class="flex items-center gap-2 text-muted hover:text-ink transition-colors">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg>
+          <span class="text-sm font-medium">OpenAI &middot; Anthropic</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FEATURES ==================== -->
+<section id="features" class="py-28 md:py-36 relative">
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- Section header -->
+    <div class="text-center mb-16 md:mb-20">
+      <p class="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium mb-4 reveal">Features</p>
+      <h2 class="font-display text-3xl md:text-5xl font-semibold tracking-tight mb-6 reveal">
+        Everything you need.<br>
+        <span class="text-muted">Nothing you don't.</span>
+      </h2>
+      <p class="text-muted text-lg max-w-xl mx-auto reveal">
+        A complete CMS that mounts into your existing Rails app. No external services, no iframes — just one gem.
       </p>
     </div>
 
-    <div class="card-grid cols-3">
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-canvas-100 to-canvas-50 mb-5">
-          <svg class="w-5 h-5 text-canvas-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+    <!-- Feature Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 reveal-stagger">
+
+      <!-- Visual Page Builder -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="w-10 h-10 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18"/>
+            <path d="M9 21V9"/>
           </svg>
         </div>
-        <h3 class="font-display text-lg font-bold text-surface-900 mb-2">Mountable Engine</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          Fully namespaced Rails engine. Mount it at any path. It won't conflict with your host app's models, routes, or assets.
+        <h3 class="font-display text-xl font-semibold text-ink mb-2">Visual Page Builder</h3>
+        <p class="text-sm text-muted leading-relaxed">
+          Drag-and-drop editor powered by GrapeJS. Pre-built blocks, live code editing, asset management, and instant preview across desktop, tablet, and mobile.
         </p>
       </div>
 
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-cyan-500/15 to-cyan-500/5 mb-5">
-          <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+      <!-- AI Content -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/>
+            <path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>
           </svg>
         </div>
-        <h3 class="font-display text-lg font-bold text-surface-900 mb-2">Visual + Code Editor</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          GrapeJS-powered drag-and-drop editor with a built-in HTML/CSS code panel. Switch between visual and code editing freely.
+        <h3 class="font-display text-xl font-semibold text-ink mb-2">AI Content Generation</h3>
+        <p class="text-sm text-muted leading-relaxed">
+          Generate text, images, and convert screenshots to production code. Streaming responses with framework-aware prompts. OpenAI, Anthropic, or OpenRouter.
         </p>
       </div>
 
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-ember-400/15 to-ember-400/5 mb-5">
-          <svg class="w-5 h-5 text-ember-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+      <!-- Tailwind -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="w-10 h-10 rounded-xl bg-steel/10 flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-steel)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8"/>
+            <path d="M6 12c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8"/>
+            <circle cx="12" cy="12" r="10"/>
           </svg>
         </div>
-        <h3 class="font-display text-lg font-bold text-surface-900 mb-2">AI Content Generation</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          Generate text, images, and convert screenshots to HTML. Supports OpenAI, Anthropic, and OpenRouter via the ruby_llm gem.
+        <h3 class="font-display text-xl font-semibold text-ink mb-2">Tailwind CSS Compilation</h3>
+        <p class="text-sm text-muted leading-relaxed">
+          CDN in the editor for instant preview. Compiled per-page CSS in production — zero bloat, no CDN dependency. Also supports Bootstrap 5 or vanilla CSS.
         </p>
+      </div>
+
+      <!-- Versioning -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="w-10 h-10 rounded-xl bg-emerald/10 flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-emerald)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-ink mb-2">Page Versioning</h3>
+        <p class="text-sm text-muted leading-relaxed">
+          Every change tracked automatically. Visual diffs show exactly what changed, who made the edit, and when. Roll back to any version with one click.
+        </p>
+      </div>
+
+      <!-- Media Library -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="w-10 h-10 rounded-xl bg-[#a78bfa]/10 flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+            <circle cx="9" cy="9" r="2"/>
+            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+          </svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-ink mb-2">Media Library</h3>
+        <p class="text-sm text-muted leading-relaxed">
+          Upload and manage assets with Active Storage. Works with local disk, S3, GCS, or Azure. Drag images directly into the editor from the built-in library.
+        </p>
+      </div>
+
+      <!-- Auth -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="w-10 h-10 rounded-xl bg-[#f472b6]/10 flex items-center justify-center mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-ink mb-2">Flexible Authentication</h3>
+        <p class="text-sm text-muted leading-relaxed">
+          Works with Devise out of the box. Or bring your own: custom controllers, HTTP Basic, or lambda-based auth. Isolated namespace means zero conflicts.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== EDITOR SHOWCASE ==================== -->
+<section id="editor" class="py-28 md:py-36 relative overflow-hidden bg-cream-warm">
+  <!-- Background accent -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gold-400/[0.03] rounded-full blur-[120px]"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Text -->
+      <div>
+        <p class="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium mb-4 reveal">Visual Editor</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-6 reveal">
+          Build pages visually.<br>
+          <span class="text-muted">Ship with confidence.</span>
+        </h2>
+        <div class="space-y-5 reveal">
+          <p class="text-muted leading-relaxed">
+            The ActiveCanvas editor gives your team a production-grade page builder that lives inside your Rails app. No external services. No vendor lock-in.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-gold-400/10 flex items-center justify-center shrink-0 mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-ink font-medium">Drag-and-drop blocks</p>
+                <p class="text-xs text-faint mt-0.5">Sections, columns, text, images, videos, forms, and more</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-gold-400/10 flex items-center justify-center shrink-0 mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-ink font-medium">Inline code editor</p>
+                <p class="text-xs text-faint mt-0.5">Monaco-powered HTML, CSS, and JavaScript editing with syntax highlighting</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-gold-400/10 flex items-center justify-center shrink-0 mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-ink font-medium">Responsive preview</p>
+                <p class="text-xs text-faint mt-0.5">Instantly switch between desktop, tablet, and mobile viewports</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-gold-400/10 flex items-center justify-center shrink-0 mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-ink font-medium">SEO controls</p>
+                <p class="text-xs text-faint mt-0.5">Meta tags, Open Graph, Twitter Cards, and JSON-LD structured data</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="reveal">
+        <div class="relative">
+          <!-- Glow behind -->
+          <div class="absolute inset-0 bg-gold-400/[0.04] rounded-2xl blur-[40px] scale-95"></div>
+
+          <!-- Device frame (dark themed — product UI) -->
+          <div class="relative rounded-2xl border border-edge overflow-hidden shadow-2xl">
+            <!-- Tabs mockup -->
+            <div class="flex items-center gap-1 px-4 py-2.5 bg-surface-alt border-b border-edge">
+              <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-surface border border-edge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#83808f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                <span class="text-[10px] text-ink">My Landing Page</span>
+              </div>
+              <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-md">
+                <span class="text-[10px] text-faint">About Us</span>
+              </div>
+              <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-md">
+                <span class="text-[10px] text-faint">Contact</span>
+              </div>
+            </div>
+
+            <!-- Page list -->
+            <div class="p-4 space-y-2 bg-surface">
+              <div class="flex items-center justify-between px-4 py-3 rounded-lg bg-surface-alt border border-edge">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded bg-indigo-500/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-steel-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51z"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-xs text-ink font-medium">Homepage Hero</div>
+                    <div class="text-[10px] text-faint">Landing Page &middot; Published</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[9px] px-2 py-0.5 rounded-full bg-emerald/10 text-emerald font-medium">Live</span>
+                  <span class="text-[10px] text-faint">v12</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-surface-alt/50 transition">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded bg-amber-500/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-xs text-ink font-medium">Pricing Page</div>
+                    <div class="text-[10px] text-faint">Landing Page &middot; Draft</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[9px] px-2 py-0.5 rounded-full bg-gold-400/10 text-gold-400 font-medium">Draft</span>
+                  <span class="text-[10px] text-faint">v3</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-surface-alt/50 transition">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded bg-pink-500/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-xs text-ink font-medium">Blog: Product Update</div>
+                    <div class="text-[10px] text-faint">Blog Post &middot; Published</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[9px] px-2 py-0.5 rounded-full bg-emerald/10 text-emerald font-medium">Live</span>
+                  <span class="text-[10px] text-faint">v7</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- FEATURES -->
-<!-- ================================================================ -->
-<section id="features" class="relative py-24 mesh-section">
-  <div class="dot-pattern absolute inset-0 opacity-40"></div>
 
-  <div class="relative max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="pill mb-5">Capabilities</span>
-      <h2 class="font-display section-title text-surface-900 mb-5">Everything you need<br>to manage pages.</h2>
-      <p class="text-lg text-surface-500 max-w-2xl mx-auto">Built as a complete solution &mdash; not a minimal scaffold you'll spend weeks extending.</p>
-    </div>
+<!-- ==================== AI ==================== -->
+<section id="ai" class="py-28 md:py-36 relative">
+  <div class="absolute inset-0 bg-cream-warm/20"></div>
 
-    <div class="card-grid cols-3">
-      <!-- Feature 1 -->
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-canvas-100 to-canvas-50 mb-5">
-          <svg class="w-5 h-5 text-canvas-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-surface-900 mb-2">CSS Framework Support</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          Tailwind CSS v4 with per-page compilation via <code class="text-xs font-mono bg-surface-100 px-1.5 py-0.5 rounded">tailwindcss-ruby</code>, Bootstrap 5, or vanilla CSS. Switch frameworks in settings.
-        </p>
-      </div>
-
-      <!-- Feature 2 -->
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-emerald-100 to-emerald-50 mb-5">
-          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-surface-900 mb-2">Page Versioning</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          Automatic version tracking on every save. View up to 50 versions per page with unified diffs, change summaries, and author tracking.
-        </p>
-      </div>
-
-      <!-- Feature 3 -->
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-blue-100 to-blue-50 mb-5">
-          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-surface-900 mb-2">Media Management</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          Upload images and files via Active Storage. Signed URLs for private storage, automatic thumbnails, and file validation with magic byte checking.
-        </p>
-      </div>
-
-      <!-- Feature 4 -->
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-amber-100 to-amber-50 mb-5">
-          <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-surface-900 mb-2">Reusable Partials</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          Manage shared header and footer templates as partials. Toggle them per-page, edit with the same visual editor, and compile CSS independently.
-        </p>
-      </div>
-
-      <!-- Feature 5 -->
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-rose-100 to-rose-50 mb-5">
-          <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-surface-900 mb-2">SEO Built-In</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          Meta title, description, canonical URLs, robots directives, Open Graph, Twitter Cards, and JSON-LD structured data &mdash; all per-page fields.
-        </p>
-      </div>
-
-      <!-- Feature 6 -->
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-violet-100 to-violet-50 mb-5">
-          <svg class="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-surface-900 mb-2">Security First</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          HTML sanitization, encrypted API key storage, SVG uploads disabled by default, rate limiting on AI endpoints, and file type validation.
-        </p>
-      </div>
-
-      <!-- Feature 7 -->
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-teal-100 to-teal-50 mb-5">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-surface-900 mb-2">Page Types & Drafts</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          Categorize pages (blog post, landing page, etc.) with custom types. Draft/Published workflow with a designated homepage setting.
-        </p>
-      </div>
-
-      <!-- Feature 8 -->
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-sky-100 to-sky-50 mb-5">
-          <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-surface-900 mb-2">Global CSS & JS</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          Site-wide stylesheets and scripts managed from settings. Per-page CSS and JS fields for fine-grained control without touching your host app.
-        </p>
-      </div>
-
-      <!-- Feature 9 -->
-      <div class="card p-7 glow-border">
-        <div class="icon-box bg-gradient-to-br from-orange-100 to-orange-50 mb-5">
-          <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-        </div>
-        <h3 class="font-display font-bold text-surface-900 mb-2">Flexible Auth</h3>
-        <p class="text-surface-500 text-sm leading-relaxed">
-          Plug in Devise, a custom lambda, HTTP Basic Auth, or a parent controller. Warns you in production if admin authentication isn't configured.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- INSTALLATION -->
-<!-- ================================================================ -->
-<section id="installation" class="relative py-28 overflow-hidden mesh-dark text-white">
-  <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute top-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-canvas-500/20 to-transparent"></div>
-    <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-canvas-500/8 rounded-full blur-[120px]"></div>
-    <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-cyan-500/8 rounded-full blur-[120px]"></div>
-  </div>
-
-  <div class="relative max-w-5xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/10 mb-6">
-        <span class="text-sm font-semibold text-canvas-300">Quick Start</span>
-      </span>
-      <h2 class="font-display section-title mb-5">
-        Up and running in<br>
-        <span class="text-canvas-400">under five minutes.</span>
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 md:mb-20">
+      <p class="text-xs uppercase tracking-[0.2em] text-coral font-medium mb-4 reveal">AI-Powered</p>
+      <h2 class="font-display text-3xl md:text-5xl font-semibold tracking-tight mb-6 reveal">
+        AI that understands<br>
+        <span class="text-muted">your stack.</span>
       </h2>
-      <p class="text-lg text-surface-400 max-w-2xl mx-auto">Three steps to add a full page management system to your Rails app.</p>
+      <p class="text-muted text-lg max-w-xl mx-auto reveal">
+        ActiveCanvas AI knows your CSS framework and generates code accordingly. Tailwind v4 utilities, Bootstrap 5 components, or vanilla CSS — it adapts.
+      </p>
     </div>
 
-    <!-- Step 1 -->
-    <div class="mb-8">
-      <div class="flex items-center gap-3 mb-4">
-        <div class="step-number bg-canvas-500/20 text-canvas-400 font-mono">1</div>
-        <h3 class="font-display font-bold text-white">Add the gem and install</h3>
-      </div>
-      <div class="code-block">
-        <div class="code-block-header">
-          <div class="flex gap-1.5">
-            <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
+    <!-- AI Features -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 reveal-stagger">
+
+      <!-- Generate -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
           </div>
-          <span class="text-xs text-surface-500 font-mono ml-2">Terminal</span>
+          <h3 class="font-display text-xl font-semibold text-ink">Generate</h3>
         </div>
-        <pre class="text-surface-300 font-mono"><code><span class="hl-comment"># Add to your Gemfile</span>
-<span class="hl-method">bundle add</span> active_canvas
-
-<span class="hl-comment"># Optional: for Tailwind CSS compilation (not CDN)</span>
-<span class="hl-method">bundle add</span> tailwindcss-ruby
-
-<span class="hl-comment"># Optional: for AI features (text, image, screenshot-to-code)</span>
-<span class="hl-method">bundle add</span> ruby_llm
-
-<span class="hl-comment"># Run the installer</span>
-<span class="hl-method">bin/rails</span> generate active_canvas:install
-<span class="hl-method">bin/rails</span> active_canvas:install:migrations
-<span class="hl-method">bin/rails</span> db:migrate</code></pre>
-      </div>
-    </div>
-
-    <!-- Step 2 -->
-    <div class="mb-8">
-      <div class="flex items-center gap-3 mb-4">
-        <div class="step-number bg-canvas-500/20 text-canvas-400 font-mono">2</div>
-        <h3 class="font-display font-bold text-white">Mount the engine</h3>
-      </div>
-      <div class="code-block">
-        <div class="code-block-header">
-          <div class="flex gap-1.5">
-            <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-          </div>
-          <span class="text-xs text-surface-500 font-mono ml-2">config/routes.rb</span>
-        </div>
-        <pre class="text-surface-300 font-mono"><code><span class="hl-const">Rails</span><span class="hl-punct">.</span>application<span class="hl-punct">.</span>routes<span class="hl-punct">.</span><span class="hl-keyword">draw</span> <span class="hl-keyword">do</span>
-  <span class="hl-comment"># Mount at any path you like</span>
-  mount <span class="hl-const">ActiveCanvas</span><span class="hl-punct">::</span><span class="hl-const">Engine</span> <span class="hl-punct">=></span> <span class="hl-string">"/canvas"</span>
-
-  <span class="hl-comment"># Or at a different path...</span>
-  <span class="hl-comment"># mount ActiveCanvas::Engine => "/pages"</span>
-  <span class="hl-comment"># mount ActiveCanvas::Engine => "/cms"</span>
-
-  <span class="hl-comment"># Or at root to power your entire site</span>
-  <span class="hl-comment"># mount ActiveCanvas::Engine => "/"</span>
-<span class="hl-keyword">end</span></code></pre>
-      </div>
-    </div>
-
-    <!-- Step 3 -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-4">
-        <div class="step-number bg-canvas-500/20 text-canvas-400 font-mono">3</div>
-        <h3 class="font-display font-bold text-white">Configure authentication</h3>
-      </div>
-      <div class="code-block">
-        <div class="code-block-header">
-          <div class="flex gap-1.5">
-            <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-          </div>
-          <span class="text-xs text-surface-500 font-mono ml-2">config/initializers/active_canvas.rb</span>
-        </div>
-        <pre class="text-surface-300 font-mono"><code><span class="hl-const">ActiveCanvas</span><span class="hl-punct">.</span>configure <span class="hl-keyword">do</span> <span class="hl-punct">|</span>config<span class="hl-punct">|</span>
-  <span class="hl-comment"># Devise, a lambda, or :http_basic_auth</span>
-  config<span class="hl-punct">.</span>authenticate_admin <span class="hl-punct">=</span> <span class="hl-symbol">:authenticate_user!</span>
-
-  <span class="hl-comment"># CSS framework: :tailwind, :bootstrap5, or :none</span>
-  config<span class="hl-punct">.</span>css_framework <span class="hl-punct">=</span> <span class="hl-symbol">:tailwind</span>
-
-  <span class="hl-comment"># AI features (requires ruby_llm gem)</span>
-  config<span class="hl-punct">.</span>enable_ai_features <span class="hl-punct">=</span> <span class="hl-keyword">true</span>
-<span class="hl-keyword">end</span></code></pre>
-      </div>
-    </div>
-
-    <!-- Result -->
-    <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-          </svg>
-        </div>
-        <div>
-          <h4 class="font-display font-bold text-white text-lg mb-1">That's it. You're ready.</h4>
-          <p class="text-surface-400 text-sm leading-relaxed">Start your Rails server and visit your mounted paths:</p>
-        </div>
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <div class="bg-surface-950 rounded-xl p-5 border border-surface-800">
-          <div class="text-xs text-surface-500 font-mono mb-2">Admin Panel</div>
-          <div class="text-canvas-400 font-mono text-sm font-medium"><span class="text-surface-600">&lt;mount&gt;</span>/admin</div>
-          <p class="text-xs text-surface-500 mt-2">Create pages, manage media, configure settings, use the visual editor</p>
-        </div>
-        <div class="bg-surface-950 rounded-xl p-5 border border-surface-800">
-          <div class="text-xs text-surface-500 font-mono mb-2">Public Pages</div>
-          <div class="text-cyan-400 font-mono text-sm font-medium"><span class="text-surface-600">&lt;mount&gt;</span>/:slug</div>
-          <p class="text-xs text-surface-500 mt-2">Published pages served to visitors with compiled CSS and SEO meta tags</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- AI SECTION -->
-<!-- ================================================================ -->
-<section id="ai" class="relative py-28 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-      <!-- Left: content -->
-      <div>
-        <span class="pill mb-5">
-          <svg class="w-4 h-4 text-canvas-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-          </svg>
-          AI Features
-        </span>
-        <h2 class="font-display section-subtitle text-surface-900 mb-5">
-          Generate content<br>with AI providers.
-        </h2>
-        <p class="text-lg text-surface-500 mb-8 leading-relaxed">
-          ActiveCanvas integrates with <strong class="text-surface-700">OpenAI</strong>, <strong class="text-surface-700">Anthropic</strong>, and <strong class="text-surface-700">OpenRouter</strong> via the <code class="text-sm font-mono bg-surface-100 px-1.5 py-0.5 rounded text-canvas-700">ruby_llm</code> gem. Configure your API keys in the admin settings panel &mdash; they're stored encrypted in your database.
+        <p class="text-sm text-muted leading-relaxed mb-5">
+          Describe a section and watch it appear. Streaming text generation builds your page in real-time with framework-specific HTML.
         </p>
-
-        <div class="space-y-5">
-          <div class="flex items-start gap-4">
-            <div class="w-9 h-9 rounded-lg bg-canvas-50 flex items-center justify-center flex-shrink-0 mt-0.5 border border-canvas-100">
-              <svg class="w-4 h-4 text-canvas-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-surface-900 mb-1">Text Generation</h4>
-              <p class="text-sm text-surface-500">Generate HTML content from natural language prompts. The AI respects your configured CSS framework and produces Tailwind or Bootstrap markup accordingly.</p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <div class="w-9 h-9 rounded-lg bg-cyan-50 flex items-center justify-center flex-shrink-0 mt-0.5 border border-cyan-100">
-              <svg class="w-4 h-4 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-surface-900 mb-1">Image Generation</h4>
-              <p class="text-sm text-surface-500">Create images from prompts directly inside the editor. Generated images are automatically saved to your media library via Active Storage.</p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <div class="w-9 h-9 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-100">
-              <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-surface-900 mb-1">Screenshot to Code</h4>
-              <p class="text-sm text-surface-500">Upload a screenshot or wireframe and get clean, editable HTML + CSS back. Uses vision models to understand layouts and produce semantic markup.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Provider cards + code sample -->
-      <div>
-        <!-- Provider pills -->
-        <div class="flex flex-wrap gap-2 mb-6">
-          <div class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-50 border border-surface-200/60 text-sm font-medium text-surface-700">
-            <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
-            OpenAI
-          </div>
-          <div class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-50 border border-surface-200/60 text-sm font-medium text-surface-700">
-            <div class="w-2 h-2 rounded-full bg-amber-500"></div>
-            Anthropic
-          </div>
-          <div class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-50 border border-surface-200/60 text-sm font-medium text-surface-700">
-            <div class="w-2 h-2 rounded-full bg-canvas-500"></div>
-            OpenRouter
-          </div>
-        </div>
-
-        <!-- Config snippet -->
+        <!-- Mini code preview -->
         <div class="code-block">
-          <div class="code-block-header">
-            <div class="flex gap-1.5">
-              <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-            </div>
-            <span class="text-xs text-surface-500 font-mono ml-2">AI Configuration</span>
+          <div class="code-block-body text-[10px] leading-relaxed">
+            <span class="cm">// Prompt:</span><br>
+            <span class="str">"Create a pricing table with 3 tiers"</span><br>
+            <br>
+            <span class="cm">// Output: streaming...</span><br>
+            <span class="op">&lt;section</span> <span class="kw">class=</span><span class="str">"py-24"</span><span class="op">&gt;</span><br>
+            <span class="op">&nbsp;&nbsp;&lt;div</span> <span class="kw">class=</span><span class="str">"grid grid-cols-3 gap-8"</span><span class="op">&gt;</span>
           </div>
-          <pre class="text-surface-300 font-mono"><code><span class="hl-comment"># API keys are configured in the admin UI</span>
-<span class="hl-comment"># at &lt;mount&gt;/admin/settings?tab=ai</span>
-<span class="hl-comment"># and stored encrypted in the database.</span>
-
-<span class="hl-const">ActiveCanvas</span><span class="hl-punct">.</span>configure <span class="hl-keyword">do</span> <span class="hl-punct">|</span>config<span class="hl-punct">|</span>
-  config<span class="hl-punct">.</span>enable_ai_features    <span class="hl-punct">=</span> <span class="hl-keyword">true</span>
-  config<span class="hl-punct">.</span>ai_rate_limit_per_minute <span class="hl-punct">=</span> <span class="hl-number">30</span>
-  config<span class="hl-punct">.</span>ai_stream_timeout      <span class="hl-punct">=</span> <span class="hl-number">5</span><span class="hl-punct">.</span>minutes
-  config<span class="hl-punct">.</span>max_screenshot_size    <span class="hl-punct">=</span> <span class="hl-number">10</span><span class="hl-punct">.</span>megabytes
-<span class="hl-keyword">end</span>
-
-<span class="hl-comment"># Browse and toggle models in the</span>
-<span class="hl-comment"># admin settings panel (AI tab).</span>
-<span class="hl-comment"># Models sync from ruby_llm providers.</span></code></pre>
         </div>
       </div>
-    </div>
 
-    <!-- AI Screenshots Showcase -->
-    <div class="mt-24 space-y-20">
-
-      <!-- Screenshot 1: AI Text Generation -->
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-canvas-50 border border-canvas-100 mb-5">
-            <svg class="w-3.5 h-3.5 text-canvas-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+      <!-- Image -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-[#a78bfa]/10 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+              <circle cx="9" cy="9" r="2"/>
+              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
             </svg>
-            <span class="text-xs font-semibold text-canvas-700">Text Generation</span>
           </div>
-          <h3 class="font-display text-2xl font-bold text-surface-900 mb-4">Describe what you need, get HTML back.</h3>
-          <p class="text-surface-500 leading-relaxed mb-5">
-            Type a prompt like <em>"Create a pricing section with three tiers"</em> and watch the AI stream clean, semantic HTML directly into the editor. Choose between Page mode (full-page content) or Element mode (single components).
-          </p>
-          <ul class="space-y-2.5 text-sm text-surface-600">
-            <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Real-time SSE streaming &mdash; see the HTML as it's generated
-            </li>
-            <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Respects your CSS framework &mdash; outputs Tailwind or Bootstrap markup
-            </li>
-            <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Copy, insert, or regenerate with one click
-            </li>
-          </ul>
+          <h3 class="font-display text-xl font-semibold text-ink">Image</h3>
         </div>
-        <div class="rounded-2xl overflow-hidden border border-surface-200/60 shadow-elevated-lg bg-surface-100">
-          <!-- TODO: Replace with actual screenshot of the AI text generation panel -->
-          <div class="aspect-[4/3] bg-surface-100 flex items-center justify-center">
-            <div class="text-center px-8">
-              <svg class="w-12 h-12 mx-auto mb-3 text-surface-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-              <p class="text-sm text-surface-400 font-medium">ai-text-generation.png</p>
-              <p class="text-xs text-surface-400 mt-1">Screenshot of the AI Generate tab with streaming response</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Screenshot 2: Screenshot to Code -->
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="order-2 lg:order-1 rounded-2xl overflow-hidden border border-surface-200/60 shadow-elevated-lg bg-surface-100">
-          <!-- TODO: Replace with actual screenshot of the screenshot-to-code panel -->
-          <div class="aspect-[4/3] bg-surface-100 flex items-center justify-center">
-            <div class="text-center px-8">
-              <svg class="w-12 h-12 mx-auto mb-3 text-surface-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-              <p class="text-sm text-surface-400 font-medium">screenshot-to-code.png</p>
-              <p class="text-xs text-surface-400 mt-1">Screenshot of the Screenshot tab with uploaded image and generated code</p>
-            </div>
-          </div>
-        </div>
-        <div class="order-1 lg:order-2">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-100 mb-5">
-            <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-            <span class="text-xs font-semibold text-amber-700">Screenshot to Code</span>
-          </div>
-          <h3 class="font-display text-2xl font-bold text-surface-900 mb-4">Drop a screenshot, get editable HTML.</h3>
-          <p class="text-surface-500 leading-relaxed mb-5">
-            Drag and drop a screenshot or wireframe into the panel. A vision model analyzes the layout, colors, and structure, then generates clean HTML + CSS that you can insert directly into your page.
-          </p>
-          <ul class="space-y-2.5 text-sm text-surface-600">
-            <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Drag &amp; drop or file picker &mdash; supports PNG, JPG, WebP
-            </li>
-            <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Add an optional prompt to guide the output style
-            </li>
-            <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Uses vision models (GPT-4o, Claude) for accurate layout reproduction
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Screenshot 3: Image Generation -->
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-50 border border-cyan-100 mb-5">
-            <svg class="w-3.5 h-3.5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-            <span class="text-xs font-semibold text-cyan-700">Image Generation</span>
-          </div>
-          <h3 class="font-display text-2xl font-bold text-surface-900 mb-4">Generate images from a text prompt.</h3>
-          <p class="text-surface-500 leading-relaxed mb-5">
-            Describe the image you need and the AI creates it using DALL-E or GPT Image. The generated image is automatically saved to your media library via Active Storage, ready to use across any page.
-          </p>
-          <ul class="space-y-2.5 text-sm text-surface-600">
-            <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Images saved directly to your Active Storage media library
-            </li>
-            <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              One-click insert into the current page
-            </li>
-            <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Powered by OpenAI image models via ruby_llm
-            </li>
-          </ul>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-surface-200/60 shadow-elevated-lg bg-surface-100">
-          <!-- TODO: Replace with actual screenshot of the AI image generation panel -->
-          <div class="aspect-[4/3] bg-surface-100 flex items-center justify-center">
-            <div class="text-center px-8">
-              <svg class="w-12 h-12 mx-auto mb-3 text-surface-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-              <p class="text-sm text-surface-400 font-medium">ai-image-generation.png</p>
-              <p class="text-xs text-surface-400 mt-1">Screenshot of the Image tab with generated image preview</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ -->
-<!-- TAILWIND COMPILATION -->
-<!-- ================================================================ -->
-<section class="relative py-24 mesh-section">
-  <div class="dot-pattern absolute inset-0 opacity-30"></div>
-
-  <div class="relative max-w-6xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-      <!-- Left: Code -->
-      <div class="order-2 lg:order-1">
-        <div class="code-block">
-          <div class="code-block-header">
-            <div class="flex gap-1.5">
-              <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-            </div>
-            <span class="text-xs text-surface-500 font-mono ml-2">Gemfile</span>
-          </div>
-          <pre class="text-surface-300 font-mono"><code><span class="hl-comment"># Enables per-page Tailwind compilation</span>
-<span class="hl-comment"># (optional &mdash; falls back to CDN)</span>
-gem <span class="hl-string">"tailwindcss-ruby"</span><span class="hl-punct">,</span> <span class="hl-string">"~> 4.0"</span>
-
-<span class="hl-comment"># What happens on page save:</span>
-<span class="hl-comment"># 1. Scans page HTML for Tailwind classes</span>
-<span class="hl-comment"># 2. Compiles only used classes via CLI</span>
-<span class="hl-comment"># 3. Stores compiled CSS in the database</span>
-<span class="hl-comment"># 4. Serves optimized CSS per page</span>
-
-<span class="hl-comment"># Custom Tailwind config in admin</span>
-<span class="hl-comment"># settings panel (CSS tab):</span>
-<span class="hl-comment"># - Custom colors</span>
-<span class="hl-comment"># - Custom font families</span>
-<span class="hl-comment"># - Bulk recompile all pages</span></code></pre>
-        </div>
-      </div>
-
-      <!-- Right: Content -->
-      <div class="order-1 lg:order-2">
-        <span class="pill mb-5">
-          <svg class="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-          </svg>
-          Tailwind CSS v4
-        </span>
-        <h2 class="font-display section-subtitle text-surface-900 mb-5">
-          Per-page CSS.<br>Not a CDN blob.
-        </h2>
-        <p class="text-lg text-surface-500 mb-6 leading-relaxed">
-          When <code class="text-sm font-mono bg-surface-100 px-1.5 py-0.5 rounded text-canvas-700">tailwindcss-ruby</code> is installed, ActiveCanvas compiles Tailwind CSS <strong class="text-surface-700">at save time</strong>. Each page gets only the CSS classes it actually uses &mdash; compiled via the real Tailwind CLI, not a CDN.
+        <p class="text-sm text-muted leading-relaxed mb-5">
+          Create images from text descriptions using DALL-E. Generated images are stored in your media library and served through Active Storage.
         </p>
-        <ul class="space-y-3 text-sm text-surface-600">
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        <!-- Mini image preview -->
+        <div class="rounded-lg border border-edge overflow-hidden">
+          <div class="aspect-[16/9] bg-surface-alt flex items-center justify-center">
+            <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-faint)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-1.5">
+                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+              </svg>
+              <span class="text-[9px] text-faint">AI Generated</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screenshot -->
+      <div class="feature-card rounded-2xl p-7 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-steel/10 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-steel)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+              <circle cx="12" cy="13" r="3"/>
             </svg>
-            <span>Compiled CSS stored in the database per page</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </div>
+          <h3 class="font-display text-xl font-semibold text-ink">Screenshot &rarr; Code</h3>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-5">
+          Upload a screenshot and get production-ready HTML. The AI matches layout, colors, typography, and outputs code using your configured CSS framework.
+        </p>
+        <!-- Mini flow preview -->
+        <div class="flex items-center gap-2 pt-1">
+          <div class="flex-1 rounded-lg border border-edge bg-surface-alt p-2.5 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-faint)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
             </svg>
-            <span>Graceful fallback to Tailwind CDN if gem not installed</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-faint)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+          <div class="flex-1 rounded-lg border border-edge bg-surface-alt p-2.5 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold-400)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
             </svg>
-            <span>Custom colors and fonts via admin settings</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            <span>One-click bulk recompile for all pages and partials</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-canvas-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            <span>Also supports Bootstrap 5 and vanilla CSS</span>
-          </li>
-        </ul>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 mt-1.5">
+          <span class="flex-1 text-center text-[9px] text-faint">Screenshot</span>
+          <span class="w-4"></span>
+          <span class="flex-1 text-center text-[9px] text-faint">HTML Code</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Provider badges -->
+    <div class="flex items-center justify-center gap-6 mt-12 text-xs text-faint reveal">
+      <span>Powered by</span>
+      <div class="flex items-center gap-4">
+        <span class="px-3 py-1 rounded-full border border-edge text-muted">OpenAI</span>
+        <span class="px-3 py-1 rounded-full border border-edge text-muted">Anthropic</span>
+        <span class="px-3 py-1 rounded-full border border-edge text-muted">OpenRouter</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- CONFIGURATION -->
-<!-- ================================================================ -->
-<section id="configuration" class="relative py-28 bg-white">
-  <div class="max-w-5xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="pill mb-5">Configuration</span>
-      <h2 class="font-display section-subtitle text-surface-900 mb-5">One initializer.<br>Full control.</h2>
-      <p class="text-lg text-surface-500 max-w-2xl mx-auto">Every aspect of ActiveCanvas can be configured in the initializer or overridden at runtime via the admin settings panel.</p>
+
+<!-- ==================== INSTALL ==================== -->
+<section id="install" class="py-28 md:py-36 relative bg-cream-warm">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-16 md:mb-20">
+      <p class="text-xs uppercase tracking-[0.2em] text-steel font-medium mb-4 reveal">Installation</p>
+      <h2 class="font-display text-3xl md:text-5xl font-semibold tracking-tight mb-6 reveal">
+        Up and running<br>
+        <span class="text-muted">in 60 seconds.</span>
+      </h2>
     </div>
 
-    <div class="code-block">
-      <div class="code-block-header">
-        <div class="flex gap-1.5">
-          <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-          <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
-          <div class="w-2.5 h-2.5 rounded-full bg-surface-700"></div>
+    <!-- Steps -->
+    <div class="space-y-8 reveal-stagger">
+
+      <!-- Step 1 -->
+      <div class="flex gap-6 md:gap-10 items-start reveal">
+        <div class="shrink-0">
+          <span class="step-number">1</span>
         </div>
-        <span class="text-xs text-surface-500 font-mono ml-2">config/initializers/active_canvas.rb</span>
+        <div class="flex-1 pt-2">
+          <h3 class="font-display text-lg font-semibold text-ink mb-3">Add the gem</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="w-3 h-3 rounded-full bg-coral/60"></div>
+              Gemfile
+            </div>
+            <div class="code-block-body">
+              <span class="cm"># Add to your Gemfile</span><br>
+              <span class="fn">gem</span> <span class="str">"active_canvas"</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <pre class="text-surface-300 font-mono"><code><span class="hl-const">ActiveCanvas</span><span class="hl-punct">.</span>configure <span class="hl-keyword">do</span> <span class="hl-punct">|</span>config<span class="hl-punct">|</span>
-  <span class="hl-comment"># ── Authentication ──────────────────────────────────────</span>
-  config<span class="hl-punct">.</span>authenticate_admin  <span class="hl-punct">=</span> <span class="hl-symbol">:authenticate_user!</span>  <span class="hl-comment"># Devise</span>
-  config<span class="hl-punct">.</span>authenticate_public <span class="hl-punct">=</span> <span class="hl-keyword">nil</span>                   <span class="hl-comment"># public pages open</span>
 
-  <span class="hl-comment"># ── CSS Framework ──────────────────────────────────────</span>
-  config<span class="hl-punct">.</span>css_framework      <span class="hl-punct">=</span> <span class="hl-symbol">:tailwind</span>   <span class="hl-comment"># :bootstrap5, :none</span>
-  config<span class="hl-punct">.</span>sanitize_content   <span class="hl-punct">=</span> <span class="hl-keyword">true</span>
+      <!-- Step 2 -->
+      <div class="flex gap-6 md:gap-10 items-start reveal">
+        <div class="shrink-0">
+          <span class="step-number">2</span>
+        </div>
+        <div class="flex-1 pt-2">
+          <h3 class="font-display text-lg font-semibold text-ink mb-3">Install and migrate</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="w-3 h-3 rounded-full bg-emerald/60"></div>
+              Terminal
+            </div>
+            <div class="code-block-body">
+              <span class="var">$</span> bundle install<br>
+              <span class="var">$</span> bin/rails generate active_canvas:install<br>
+              <span class="var">$</span> bin/rails db:migrate
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <span class="hl-comment"># ── Uploads ────────────────────────────────────────────</span>
-  config<span class="hl-punct">.</span>enable_uploads     <span class="hl-punct">=</span> <span class="hl-keyword">true</span>
-  config<span class="hl-punct">.</span>max_upload_size    <span class="hl-punct">=</span> <span class="hl-number">10</span><span class="hl-punct">.</span>megabytes
-  config<span class="hl-punct">.</span>public_uploads     <span class="hl-punct">=</span> <span class="hl-keyword">false</span>        <span class="hl-comment"># signed URLs</span>
-  config<span class="hl-punct">.</span>allow_svg_uploads  <span class="hl-punct">=</span> <span class="hl-keyword">false</span>        <span class="hl-comment"># XSS vector</span>
-
-  <span class="hl-comment"># ── AI ─────────────────────────────────────────────────</span>
-  config<span class="hl-punct">.</span>enable_ai_features <span class="hl-punct">=</span> <span class="hl-keyword">true</span>
-  config<span class="hl-punct">.</span>enable_code_editor <span class="hl-punct">=</span> <span class="hl-keyword">true</span>
-  config<span class="hl-punct">.</span>autosave_interval  <span class="hl-punct">=</span> <span class="hl-number">60</span>           <span class="hl-comment"># seconds</span>
-  config<span class="hl-punct">.</span>max_versions_per_page <span class="hl-punct">=</span> <span class="hl-number">50</span>
-<span class="hl-keyword">end</span></code></pre>
+      <!-- Step 3 -->
+      <div class="flex gap-6 md:gap-10 items-start reveal">
+        <div class="shrink-0">
+          <span class="step-number">3</span>
+        </div>
+        <div class="flex-1 pt-2">
+          <h3 class="font-display text-lg font-semibold text-ink mb-3">Start building</h3>
+          <div class="code-block">
+            <div class="code-block-header">
+              <div class="w-3 h-3 rounded-full bg-steel/60"></div>
+              Browser
+            </div>
+            <div class="code-block-body">
+              <span class="cm"># Visit your new CMS admin</span><br>
+              <span class="kw">http://</span><span class="str">localhost:3000</span><span class="op">/canvas/admin</span><br>
+              <br>
+              <span class="cm"># Published pages served at</span><br>
+              <span class="kw">http://</span><span class="str">localhost:3000</span><span class="op">/canvas/your-page-slug</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- ================================================================ -->
-<!-- ARCHITECTURE OVERVIEW -->
-<!-- ================================================================ -->
-<section class="relative py-24 mesh-section">
-  <div class="dot-pattern absolute inset-0 opacity-30"></div>
-
-  <div class="relative max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="pill mb-5">Under the Hood</span>
-      <h2 class="font-display section-subtitle text-surface-900 mb-5">What ships with the engine.</h2>
-      <p class="text-lg text-surface-500 max-w-2xl mx-auto">ActiveCanvas adds these models and admin interfaces to your app, all behind its own namespace.</p>
-    </div>
-
-    <div class="card-grid cols-4">
-      <div class="card p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-canvas-50 flex items-center justify-center border border-canvas-100">
-          <svg class="w-5 h-5 text-canvas-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-          </svg>
+    <!-- Config teaser -->
+    <div class="mt-16 reveal">
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="w-3 h-3 rounded-full bg-gold-400/60"></div>
+          config/initializers/active_canvas.rb
         </div>
-        <h4 class="font-display font-bold text-sm text-surface-900">Page</h4>
-        <p class="text-xs text-surface-500 mt-1">Content, slug, CSS, JS, SEO fields, draft/published</p>
-      </div>
-
-      <div class="card p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-emerald-50 flex items-center justify-center border border-emerald-100">
-          <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
+        <div class="code-block-body text-xs leading-[1.8]">
+          <span class="fn">ActiveCanvas</span><span class="op">.</span><span class="fn">configure</span> <span class="kw">do</span> <span class="op">|</span><span class="var">config</span><span class="op">|</span><br>
+          &nbsp;&nbsp;<span class="cm"># Authentication</span><br>
+          &nbsp;&nbsp;<span class="var">config</span><span class="op">.</span>authenticate_admin <span class="op">=</span> <span class="op">:</span><span class="str">authenticate_user!</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="cm"># CSS Framework — :tailwind, :bootstrap5, or :none</span><br>
+          &nbsp;&nbsp;<span class="var">config</span><span class="op">.</span>css_framework <span class="op">=</span> <span class="op">:</span><span class="str">tailwind</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="cm"># AI Features</span><br>
+          &nbsp;&nbsp;<span class="var">config</span><span class="op">.</span>enable_ai_features <span class="op">=</span> <span class="kw">true</span><br>
+          &nbsp;&nbsp;<span class="var">config</span><span class="op">.</span>ai_rate_limit_per_minute <span class="op">=</span> <span class="num">30</span><br>
+          <br>
+          &nbsp;&nbsp;<span class="cm"># Uploads</span><br>
+          &nbsp;&nbsp;<span class="var">config</span><span class="op">.</span>max_upload_size <span class="op">=</span> <span class="num">10</span><span class="op">.</span><span class="fn">megabytes</span><br>
+          <span class="kw">end</span>
         </div>
-        <h4 class="font-display font-bold text-sm text-surface-900">PageVersion</h4>
-        <p class="text-xs text-surface-500 mt-1">Diffs, change summaries, author tracking</p>
-      </div>
-
-      <div class="card p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-blue-50 flex items-center justify-center border border-blue-100">
-          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-          </svg>
-        </div>
-        <h4 class="font-display font-bold text-sm text-surface-900">Media</h4>
-        <p class="text-xs text-surface-500 mt-1">Active Storage files, thumbnails, metadata</p>
-      </div>
-
-      <div class="card p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-amber-50 flex items-center justify-center border border-amber-100">
-          <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-          </svg>
-        </div>
-        <h4 class="font-display font-bold text-sm text-surface-900">Partial</h4>
-        <p class="text-xs text-surface-500 mt-1">Header/footer templates, compiled CSS</p>
-      </div>
-
-      <div class="card p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-rose-50 flex items-center justify-center border border-rose-100">
-          <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
-          </svg>
-        </div>
-        <h4 class="font-display font-bold text-sm text-surface-900">PageType</h4>
-        <p class="text-xs text-surface-500 mt-1">Categorize pages: blog, landing, etc.</p>
-      </div>
-
-      <div class="card p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-violet-50 flex items-center justify-center border border-violet-100">
-          <svg class="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
-        </div>
-        <h4 class="font-display font-bold text-sm text-surface-900">Setting</h4>
-        <p class="text-xs text-surface-500 mt-1">Key-value store: homepage, CSS, API keys</p>
-      </div>
-
-      <div class="card p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-teal-50 flex items-center justify-center border border-teal-100">
-          <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-          </svg>
-        </div>
-        <h4 class="font-display font-bold text-sm text-surface-900">AiModel</h4>
-        <p class="text-xs text-surface-500 mt-1">Synced from providers, toggle on/off</p>
-      </div>
-
-      <div class="card p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-sky-50 flex items-center justify-center border border-sky-100">
-          <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-          </svg>
-        </div>
-        <h4 class="font-display font-bold text-sm text-surface-900">Admin UI</h4>
-        <p class="text-xs text-surface-500 mt-1">Full CRUD, settings, editor, media browser</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- CTA / FOOTER -->
-<!-- ================================================================ -->
-<section class="relative py-28 overflow-hidden mesh-hero">
-  <div class="noise-overlay absolute inset-0"></div>
-  <div class="grid-pattern absolute inset-0"></div>
 
-  <div class="relative max-w-3xl mx-auto px-6 text-center">
-    <h2 class="font-display section-title text-surface-900 mb-5">
-      Add a CMS to your<br>
-      <span class="gradient-text">Rails app today.</span>
-    </h2>
+<!-- ==================== CTA ==================== -->
+<section class="py-28 md:py-40 relative overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gold-400/[0.04] rounded-full blur-[100px]"></div>
+    <div class="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-coral/[0.03] rounded-full blur-[80px]"></div>
+  </div>
 
-    <p class="text-lg text-surface-500 mb-10 max-w-2xl mx-auto">
-      Free, open source, MIT licensed. No accounts, no SaaS dependencies.
-      Just a gem in your Gemfile.
-    </p>
-
-    <!-- Install command -->
-    <div class="max-w-md mx-auto mb-10">
-      <div class="flex items-center gap-2 p-1.5 rounded-2xl bg-white border border-surface-200/60 shadow-elevated">
-        <div class="flex-1 px-4 py-2.5 font-mono text-sm text-left text-surface-700 flex items-center gap-2.5 overflow-x-auto">
-          <span class="text-canvas-500 select-none font-semibold">$</span>
-          <span>bundle add active_canvas</span>
-        </div>
-        <button onclick="navigator.clipboard.writeText('bundle add active_canvas')" class="px-4 py-2.5 rounded-xl bg-surface-100 hover:bg-surface-200 transition-colors text-sm font-medium text-surface-500 hover:text-surface-800 flex-shrink-0">
-          Copy
-        </button>
-      </div>
+  <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+    <div class="reveal">
+      <p class="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium mb-6">Open Source</p>
+      <h2 class="font-display text-4xl md:text-6xl font-semibold tracking-tight mb-6">
+        Free and open source.<br>
+        <span class="text-gradient-gold">Forever.</span>
+      </h2>
+      <p class="text-lg text-muted leading-relaxed mb-10 max-w-lg mx-auto">
+        MIT licensed. Built by developers, for developers. Contribute, fork, extend — no strings attached.
+      </p>
     </div>
 
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#installation" class="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full btn-primary text-white font-semibold">
-        Read the Quick Start
-        <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+      <a href="https://github.com/giovapanasiti/active_canvas" target="_blank" rel="noopener"
+         class="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gold-400 text-white font-semibold text-sm hover:shadow-lg transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        Star on GitHub
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover:translate-x-0.5">
+          <path d="M7 17l9.2-9.2M17 17V7.8H7.8"/>
         </svg>
       </a>
-      <a href="https://github.com/giovapanasiti/active_canvas" target="_blank" class="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full btn-secondary text-surface-700 font-semibold">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        Star on GitHub
+
+      <a href="{{ '/docs.html' | relative_url }}"
+         class="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-edge hover:border-edge-light bg-surface hover:bg-surface-alt text-ink text-sm font-medium transition-all duration-200">
+        Read the Docs
       </a>
+    </div>
+
+    <!-- Stats -->
+    <div class="flex items-center justify-center gap-8 md:gap-12 mt-16 reveal">
+      <div class="text-center">
+        <div class="font-display text-2xl font-semibold text-ink">MIT</div>
+        <div class="text-xs text-faint mt-1">License</div>
+      </div>
+      <div class="w-px h-8 bg-edge"></div>
+      <div class="text-center">
+        <div class="font-display text-2xl font-semibold text-ink">Rails 8+</div>
+        <div class="text-xs text-faint mt-1">Compatible</div>
+      </div>
+      <div class="w-px h-8 bg-edge"></div>
+      <div class="text-center">
+        <div class="font-display text-2xl font-semibold text-ink">3</div>
+        <div class="text-xs text-faint mt-1">AI Providers</div>
+      </div>
+      <div class="w-px h-8 bg-edge hidden sm:block"></div>
+      <div class="text-center hidden sm:block">
+        <div class="font-display text-2xl font-semibold text-ink">1 Gem</div>
+        <div class="text-xs text-faint mt-1">To Install</div>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- Footer -->
-<footer class="relative py-16 bg-surface-950 text-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row items-start justify-between gap-12 mb-12">
-
-      <!-- Brand -->
-      <div class="max-w-xs">
-        <a href="/" class="flex items-center gap-2.5 mb-5">
-          <div class="w-8 h-8 rounded-[9px] bg-gradient-to-br from-canvas-600 to-canvas-500 flex items-center justify-center">
-            <svg class="w-[18px] h-[18px] text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-              <polyline points="2 17 12 22 22 17"/>
-              <polyline points="2 12 12 17 22 12"/>
-            </svg>
-          </div>
-          <span class="text-lg font-display font-bold">Active<span class="text-canvas-400">Canvas</span></span>
-        </a>
-        <p class="text-surface-400 text-sm leading-relaxed">
-          A mountable Rails engine for page management with a visual editor, AI content generation, and per-page Tailwind CSS compilation.
-        </p>
-      </div>
-
-      <!-- Links -->
-      <div class="flex gap-16">
-        <div>
-          <h4 class="font-display font-bold text-white text-sm mb-4">On This Page</h4>
-          <ul class="space-y-2.5 text-sm">
-            <li><a href="#features" class="text-surface-400 hover:text-white transition-colors">Features</a></li>
-            <li><a href="#installation" class="text-surface-400 hover:text-white transition-colors">Installation</a></li>
-            <li><a href="#ai" class="text-surface-400 hover:text-white transition-colors">AI Features</a></li>
-            <li><a href="#configuration" class="text-surface-400 hover:text-white transition-colors">Configuration</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-display font-bold text-white text-sm mb-4">Links</h4>
-          <ul class="space-y-2.5 text-sm">
-            <li><a href="https://github.com/giovapanasiti/active_canvas" class="text-surface-400 hover:text-white transition-colors">GitHub</a></li>
-            <li><a href="https://rubygems.org/gems/active_canvas" class="text-surface-400 hover:text-white transition-colors">RubyGems</a></li>
-            <li><a href="https://github.com/giovapanasiti/active_canvas/blob/main/MIT-LICENSE" class="text-surface-400 hover:text-white transition-colors">MIT License</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom -->
-    <div class="pt-8 border-t border-surface-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-surface-500">
-        &copy; 2025 ActiveCanvas by <a href="https://github.com/giovapanasiti" class="text-surface-400 hover:text-white transition-colors">Giovanni Panasiti</a>. Open source under the MIT License.
-      </p>
-      <a href="https://github.com/giovapanasiti/active_canvas" class="flex items-center gap-2 text-sm text-surface-500 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        giovapanasiti/active_canvas
-      </a>
-    </div>
-  </div>
-</footer>

@@ -1,0 +1,13 @@
+{
+  "name": "active-canvas-website",
+  "private": true,
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./_src/main.css -o ./assets/css/output.css --minify",
+    "watch:css": "npx @tailwindcss/cli -i ./_src/main.css -o ./assets/css/output.css --watch",
+    "dev": "concurrently \"npm run watch:css\" \"bundle exec jekyll serve --livereload\""
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "concurrently": "^9.0.0"
+  }
+}
